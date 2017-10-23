@@ -1,6 +1,3 @@
 .tableCheckbox tbody tr{
      cursor: pointer;
 }
-.tableCheckbox td:first{
-     width: 10%;
-}
