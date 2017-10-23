@@ -11,7 +11,7 @@
           @include('planesEstudio.enp.anio6._form')
      --}}
 
-     @include('planesEstudio.enp.anio6._form')
+     @include('planesEstudio.cch.semestre1._form')
 
      {{--@include('planesEstudio.cch.semestre1._form')--}}
 
