@@ -1,3 +1,5 @@
+
+<h3>Planes de Estudio Escuela Nacional Preparatoria</h3>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
      @foreach ($enp as $semestre => $value)
           <div class="panel panel-default">

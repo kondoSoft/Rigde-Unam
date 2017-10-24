@@ -1,12 +1,12 @@
 
-<h3>Plan y Programas Indicativos Colegio de Ciencias y Humanidades</h3>
+<h3>Planes de Estudio Escuela Nacional Preparatoria</h3>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-     @foreach ($cch as $semestre => $value)
+     @foreach ($enp as $semestre => $value)
           <div class="panel panel-default">
                <div class="panel-heading" role="tab" id="heading{{$semestre}}">
                     <h4 class="panel-title">
                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$semestre}}" aria-expanded="false" aria-controls="collapse{{$semestre}}">
-                              {{$semestre}} Semestre
+                              {{$semestre}} Año
                          </a>
                     </h4>
                </div>
@@ -15,7 +15,7 @@
                          <div class="panel-body">
                               @foreach ($value as $opcion => $materia)
                                    <div class="col-md-10 col-md-offset-1">
-                                             <table class="table table-hover tableCheckbox">
+                                             <table class="table table-hover table-condensed tableCheckbox">
                                                   <thead>
                                                        <tr>
                                                             <th colspan="2">{{$opcion}}</th>

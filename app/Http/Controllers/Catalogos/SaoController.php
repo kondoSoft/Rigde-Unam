@@ -478,6 +478,6 @@ class SaoController extends Controller
                   ]
              ]
         ];
-         return view('layouts.catalogos', compact('materias', 'cch', 'enp', 'bdu'));
+         return view('sao.index', compact('materias', 'cch', 'enp', 'bdu'));
     }
 }
