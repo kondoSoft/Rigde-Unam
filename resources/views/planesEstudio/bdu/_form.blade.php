@@ -1,3 +1,5 @@
+
+<h3>Bachillerato a Distancia UNAM</h3>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
      @foreach ($bdu as $semestre => $value)
           <div class="panel panel-default">

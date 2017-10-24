@@ -17,8 +17,20 @@ Route::get('/', function () {
 
 
 //Vistas
-Route::group(['prefix' => 'catalogo'],function() {
+Route::group(['prefix' => 'catalogos'],function() {
 
   //Situacion actual de operacion -> sao
-  Route::get('sao', 'Catalogos\SaoController@index')->name('sao.index');
+  Route::get('sao', 'Catalogos\SaoController@index')->name('catalogos.sao.index');
+  Route::get('dirTecnica', 'Catalogos\dirTecnicaController@index')->name('catalogos.dirTecnica.index');
+});
+
+Route::group(['prefix' => 'planesEstudio'], function() {
+     Route::get('bdu', 'planesEstudio\bduController@index')->name('planesEstudio.bdu.index');
+     Route::get('cch', 'planesEstudio\cchController@index')->name('planesEstudio.cch.index');
+     Route::get('enp', 'planesEstudio\enpController@index')->name('planesEstudio.enp.index');
+});
+
+Route::group(['prefix' => 'conteo'], function() {
+     Route::get('enp', 'conteo\enpController@index')->name('conteo.enp.index');
+     Route::get('cch', 'conteo\cchController@index')->name('conteo.cch.index');
 });
