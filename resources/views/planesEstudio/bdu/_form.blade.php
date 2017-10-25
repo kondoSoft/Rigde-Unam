@@ -1,8 +1,6 @@
-
-<h3>Bachillerato a Distancia UNAM</h3>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
      @foreach ($bdu as $semestre => $value)
-          <div class="panel panel-default">
+          <div class="panel panel-info">
                <div class="panel-heading" role="tab" id="heading{{$semestre}}">
                     <h4 class="panel-title">
                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$semestre}}" aria-expanded="false" aria-controls="collapse{{$semestre}}">

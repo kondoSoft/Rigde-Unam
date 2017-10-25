@@ -1,7 +1,6 @@
-<h1>Dirección Técnica</h1>
 <div class="col-md-12">
-     <div class="col-md-4">
-          <div class="form-group">
+     <div class="col-md-10 col-md-offset-1">
+          <div class="form-group col-md-6">
                <label class="">Turno</label>
                <select class="form-control">
                     <option>Matutino</option>
@@ -9,31 +8,31 @@
                     <option>Mixto</option>
                </select>
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Nombre del (la) Director(a) Técnico(a)</label>
                <input type="text" class="form-control" name="nombreDirector[{{$turno or ''}}]">
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Grado academico y nombre de estudio</label>
                <input type="text" class="form-control" name="grado[{{$turno or ''}}]">
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Horario de permanencia en la ISI (rango)</label>
                <input type="text" class="form-control" name="horario[{{$turno or ''}}]">
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Antigüedad docente DGIRE</label>
                <input type="text" class="form-control" name="antDocente[{{$turno or ''}}]">
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Número de expediente</label>
                <input type="text" class="form-control" name="numExp[{{$turno or ''}}]">
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Fecha de oficio de autorizacion como Director Técnico</label>
                <input type="text" class="form-control" name="FechaOficio[{{$turno or ''}}]">
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
                <label for="">Antigüedad en la Dirección Tecnica de la ISI (años)</label>
                <input type="text" class="form-control" name="FechaOficio[{{$turno or ''}}]">
           </div>
