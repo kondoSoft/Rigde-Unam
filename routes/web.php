@@ -22,6 +22,8 @@ Route::group(['prefix' => 'catalogos'],function() {
   //Situacion actual de operacion -> sao
   Route::get('sao', 'Catalogos\SaoController@index')->name('catalogos.sao.index');
   Route::get('dirTecnica', 'Catalogos\dirTecnicaController@index')->name('catalogos.dirTecnica.index');
+  Route::get('rcae', 'Catalogos\rcaeController@index')->name('catalogos.rcae.index');
+  Route::get('horarioEscolar', 'Catalogos\horarioEscolarController@index')->name('catalogos.horarioEscolar.index');
 });
 
 Route::group(['prefix' => 'planesEstudio'], function() {

@@ -1,9 +1,8 @@
 <!-- Formulario para Situacion actual de operacion-->
 
 <div class="container-fluid">
-     <div class="h1">Situación actual de operación</div>
      <br>
-     <div class="form-group col-md-4 ">
+     <div class="form-group col-md-10 col-md-offset-1 ">
           <div class="checkbox">
                <label>
                     <input type="checkbox"> Vigente.

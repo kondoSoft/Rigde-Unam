@@ -1,8 +1,14 @@
 @extends('layouts.temporal')
 
 @section('content')
-
-     @include('dirTecnica._form')
+     <div class="panel panel-default">
+          <div class="panel-heading">
+               <h2>Dirección Técnica</h2>
+          </div>
+          <div class="panel-body">
+               @include('dirTecnica._form')
+          </div>
+     </div>
 
 @endsection
 
