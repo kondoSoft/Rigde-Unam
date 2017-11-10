@@ -1,0 +1,288 @@
+
+
+<div class="content"> 		
+	<div id="maincontainer" name="maincontainer" 	>
+		
+		<div class="row">
+			<div class="col m6 offset-m2 s12" ng-controller="RegisterController">		
+			    <h3 class="uk-panel-title">Regístrate</h3>
+			    <strong>Los campos marcados con * son obligatorios</strong>
+			    <form angular-validator-submit="submitRegister()" angular-validator  role="form" name="regForm" novalidate>
+
+			    	<div class="input-field">
+			    		<span >¿Eres persona física o moral?*</span>
+			    			<input type="radio" 
+			                ng-model="user.persona"
+			                id="fisica" 
+			                name="group1"
+			                value="fisica"
+			                />
+			            	<label for="fisica" style="top: 0px;">Física</label>	
+			    		
+			    			<input type="radio" 
+			                ng-model="user.persona"
+			                id="moral" 
+			                name="group1"
+			                value="moral"
+			                />
+			            	<label for="moral" style="top: 0px;">Moral</label>	
+			    		
+					</div>
+					<div class="input-field" ng-show="user.persona=='fisica'">
+						<i class="mdi-content-create prefix"></i>
+					    <input type="text" 
+			                class="validate"
+			                ng-model="user.curp"
+			                invalid-message="'Escribe tu CURP'"
+			                required-message="''"
+			                ng-required="user.persona=='fisica'"
+			                id="curp" 
+			                name="curp"
+			                validate-on="dirty"
+			                />
+			            <label for="nombre">CURP*</label>
+			            <span><a target="_blank" href="https://consultas.curp.gob.mx/CurpSP">Consulta tu CURP aquí</a></span>
+					</div>
+					<div class="input-field" ng-show="user.persona=='moral'">
+						<i class="mdi-content-create prefix"></i>
+					    <input type="text" 
+			                class="validate"
+			                ng-model="user.rz"
+			                id="rz" 
+			                name="rz"
+			                />
+			            <label for="nombre">Razón Social</label>
+					</div>
+					<div class="input-field" ng-if="user.persona=='fisica'">
+			    		
+			    		<i class="mdi-content-create prefix"></i>
+					    <input type="text" 
+			                class="validate"
+			                ng-model="user.rfc"
+			                id="rfc" 
+			                name="rfc"
+			                />
+			            <label for="nombre">RFC</label>
+					</div>
+					<div class="input-field" ng-if="user.persona=='moral'">
+			    		
+			    		<i class="mdi-content-create prefix"></i>
+					    <input type="text" 
+			                class="validate"
+			                ng-model="user.rfc"
+			                invalid-message="'Escribe tu RFC'"
+			                required-message="''"
+			                required
+			                id="rfc" 
+			                name="rfc"
+			                validate-on="dirty"
+			                />
+			            <label for="nombre">RFC*</label>
+					</div>
+
+			    	<div class="input-field">
+			    		
+			    		<i class="mdi-action-account-circle prefix"></i>
+					    <input type="text" 
+			                class="validate"
+			                ng-model="user.nombre"
+			                invalid-message="'Escribe tu nombre'"
+			                required-message="''"
+			                required
+			                id="nombre" 
+			                name="nombre"
+			                validate-on="dirty"
+			                />
+			            <label for="nombre">Nombre*</label>
+					</div>
+			              
+			        <div class="input-field">
+			        	<i class="mdi-content-create prefix"></i>
+				        <input type="text"
+			                class="validate"
+			                ng-model="user.apellidop"
+			                invalid-message="'Apellido incorrecto'"
+			                required-message="''"
+			                required
+			                id="apellidop"
+			                name="apellidop"
+							validate-on="dirty"
+			                />
+			            <label for="apellidos">Apellido Paterno*</label>
+					</div>
+					<div class="input-field">
+			        	<i class="mdi-content-create prefix"></i>
+				        <input type="text"
+			                class="validate"
+			                ng-model="user.apellidom"
+			                invalid-message="'Apellido incorrecto'"
+			                required-message="''"
+			                required
+			                id="apellidom"
+			                name="apellidom"
+							validate-on="dirty"
+			                />
+			            <label for="apellidom">Apellido Materno*</label>
+					</div>
+					<div class="col s12 m12">
+						<label for="estado">Estado*</label>
+						<select name="estado" id="estado" ng-model="user.estado" class="browser-default" ng-change="changeEdo()">
+							<option value="">-- Selecciona un estado --</option>
+							<option value="1">Aguascalientes</option>
+							<option value="2">Baja California</option>
+							<option value="3">Baja California Sur</option>
+							<option value="4">Campeche</option>
+							<option value="7">Coahuila de Zaragoza</option>
+							<option value="8">Colima</option>
+							<option value="5" ng-selected="true">Chiapas</option>
+							<option value="6">Chihuahua</option>
+							<option value="9">Distrito Federal</option>
+							<option value="10">Durango</option>
+							<option value="11">Guanajuato</option>
+							<option value="12">Guerrero</option>
+							<option value="13">Hidalgo</option>
+							<option value="14">Jalisco</option>
+							<option value="15">México</option>
+							<option value="16">Michoacán de Ocampo</option>
+							<option value="17">Morelos</option>
+							<option value="18">Nayarit</option>
+							<option value="19">Nuevo León</option>
+							<option value="20">Oaxaca</option>
+							<option value="21">Puebla</option>
+							<option value="22">Querétaro</option>
+							<option value="23">Quintana Roo</option>
+							<option value="24">San Luis Potosí</option>
+							<option value="25">Sinaloa</option>
+							<option value="26">Sonora</option>
+							<option value="27">Tabasco</option>
+							<option value="28">Tamaulipas</option>
+							<option value="29">Tlaxcala</option>
+							<option value="30">Veracruz de Ignacio de la Llave</option>
+							<option value="31">Yucatán</option>
+							<option value="32">Zacatecas</option>
+							
+						</select>
+
+					</div>
+					<div class="col s12 m12">
+						<label>Delegación/Municipio*</label>
+				    	 <select  class="browser-default" ng-model="user.municipio" ng-options="item.municipio for item in muni track by item.clave">
+				    	 	      <option value="">-- Selecciona un municipio --</option>
+				    	 </select>
+					</div>	
+					<div class="row">
+						<div class="input-field col s12 m6">
+				        	<i class="mdi-content-create prefix"></i>
+					        <input type="text"
+				                class="validate"
+				                ng-model="user.calle"
+				                id="calle"
+				                name="calle"
+				                />
+				            <label for="calle">Calle</label>
+						</div>	
+						<div class="input-field col s12 m3">
+					        <input type="text"
+				                class="validate"
+				                ng-model="user.exterior"
+				                id="exterior"
+				                name="exterior"
+				                />
+				            <label for="exterior">No. exterior</label>
+						</div>	
+						<div class="input-field col s12 m3">
+					        <input type="text"
+				                class="validate"
+				                ng-model="user.interior"
+				                id="interior"
+				                name="interior"
+				                />
+				            <label for="interior">No. interior</label>
+						</div>	
+					</div>
+					
+					
+					<div class="form-group">
+						<i class="mdi-content-mail prefix"></i>
+						<label for="email">Correo electrónico*</label>
+					    <input type="email" 
+					    	class="validate" 
+					    	ng-model="user.email"
+							invalid-message="'Formato incorrecto de email'"
+		                    required-message="''"
+		                    required        				    	
+							id="email" 
+							name="email"
+							validate-on="dirty"
+					    	/>
+					   	
+					</div>
+					
+					<div class="col s12 m12" style="font-size:11px;">
+						<strong>Por seguridad tu contraseña tiene que tener:</strong>
+						<ul class="list-pass">
+							<li><strong>8 caracteres</strong></li>
+							<li><strong>Por lo menos un número</strong></li>
+							<li><strong>Por lo menos una letra mayúscula</strong></li>
+						</ul>
+					</div>
+
+					<div class="form-group">
+					    <i class="mdi-action-https prefix"></i>
+					    <label for="password" class="uk-form-label">Contraseña*</label>
+					   	<input type="password" 
+					   		id="password"  
+					   		name="password"  
+					   		ng-model="user.password" 
+					   		class="validate" 
+					   		validator="passwordValidator(user.password) === true"
+					   		validate-on="dirty"
+		                    invalid-message="passwordValidator(user.password)"
+		                    required-message="''"
+		                    required
+					   		/>
+					   	
+					</div>
+					
+					<div class="form-group">
+					   	<i class="mdi-action-https prefix"></i> 
+					   	<label for="password2">Contraseña nuevamente*</label>
+					    <input type="password"
+					    	ng-model="user.confirmPassword" 
+					    	class="validate" 
+					    	id="password2" 
+					    	name="password2" 
+					    	validator="user.password === user.confirmPassword"
+		                    validate-on="dirty"
+		                    invalid-message="'Contraseñas no coinciden!'"
+		                    required-message="''"
+		                    required
+					    	/>
+					   
+					</div>
+					<p>
+					    <input type="checkbox" id="term"  ng-model="checked"/>
+					    <label for="term">He leído y acepto los términos y condiciones</label>
+					</p>
+				  <button type="submit" ng-disabled="!checked" id="registersubmit" class="btn btn-block btn-success">Registrarse</button>
+				</form>
+				
+			</div>
+			
+			<div class="col-md-3"></div>
+		</div>
+		
+		<div class="row top30"></div>
+		
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 col-xs-12">
+				<p class="text-center">Si ya tienes una cuenta <a href="#/login">ingresa ahora</a></p>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+		
+		 
+		
+
+	</div>
+</div>

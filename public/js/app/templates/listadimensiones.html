@@ -1,0 +1,70 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Lista de Dimensiones</h3>
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<a href="#/" class="btn btn-success" type="button">Agregar dimensión</a>	
+		</div>
+		
+		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-condensed " id="tramtable">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a id="ord1" class="order-list order-list-active" ng-click="doOrder(1)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a id="ord2" class="order-list" ng-click="doOrder(2)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				      <th data-field="estatus">
+				      	<a id="ord5" class="order-list order-list-active" ng-click="doOrder(5)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Estatus
+				      	<a id="ord6" class="order-list" ng-click="doOrder(6)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				      <th data-field="opciones">
+				      
+				      </th>
+				     
+
+				  </tr>
+				</thead>
+
+				<tbody id="tbtram">
+				  <tr  ng-repeat="dimension in misdimensiones track by dimension.dimid">
+		        		
+				  		 <td>
+			            	{{dimension.dimnombre}}
+			            	
+			            </td>
+			            <td>
+			            	<a target="_self" href="#/dimension/{{dimension.dimid}}">{{dimension.dimclave}}</a>
+			            	
+			            </td>
+			            <td>
+			            	<span ng-if="dimension.dimactiva == 1">
+			            		<a href="javascript:;" ng-click="changeEstatus(dimension.dimid, $index);"><i class="glyphicon glyphicon-ok" style="color: green;"></i></a>
+			            	</span>
+			            	<span ng-if="dimension.dimactiva == 2">
+			            		<a href="javascript:;" ng-click="changeEstatus(dimension.dimid, $index);"><i class="glyphicon glyphicon-ban-circle" style="color: red;"></i></a>
+			            	</span>
+			            </td>
+			            <td>
+			            	<a href="javascript:;" ng-click="removedimension(dimension.dimid);"><i class="glyphicon glyphicon-remove-sign" style="color: red;"></i></a>
+			            	
+			            </td>
+
+			        </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>

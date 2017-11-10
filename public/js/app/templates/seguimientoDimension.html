@@ -1,0 +1,102 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Retroalimentación y Seguimiento</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div ng-controller="MenuController">
+				<div class="form-group col-md-3" ng-if="hasAccess('accesomussi') || hasAccess('superadmin')">
+					<button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalVisita">Visita de supervisíon</button>
+				</div>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			
+			<!--tabla dimensione-->
+			<table class="table table-condensed " id="tramtable">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a id="ord1" class="order-list order-list-active" ng-click="doOrder(1)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a id="ord2" class="order-list" ng-click="doOrder(2)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				     
+				     
+				  		<th data-field="comandos">
+				      	
+				      	</th>
+
+				  </tr>
+				</thead>
+
+				<tbody id="tbtram">
+				  <tr  ng-repeat="dimension in misdimensiones track by dimension.dimid">
+		        		
+				  		 <td>
+			            	{{dimension.dimnombre}}
+			            	
+			            </td>
+			            <td>
+			            	<a target="_self" href="#/seguimiento/{{cliid}}/dimension/{{dimension.dimid}}">{{dimension.dimclave}}</a>
+			            	
+			            </td>
+			           
+			            <td>
+			            	<a href="javascript:;"  ng-click="comentarios();">Observaciones</a>
+			            	
+			            </td>
+
+			        </tr>
+			        
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+
+
+	<div id="modalVisita" class="modal fade" role="dialog">
+<div class="modal-dialog">
+		<div class="modal-content">
+		  	<div class="modal-header">
+		  		<h3>Visita de Supervisión</h3>	
+		  	</div>   
+		    <div class="modal-body">
+		    	<form name="formvisista">
+		    		<div class="form-group">			    		
+			            <label for="nombre">Fecha*</label>
+					    <input type="text" 
+			                class="form-control"
+			                ng-model="fechavisita"
+			                required
+			                id="fechavisita" 
+			                name="fechavisita"
+			                />
+					</div>
+		    		<div class="form-group">			    		
+			            <label for="nombre" >Tipo de Supervisón</label>
+					   	<input checked="cheked" type="radio" ng-model="visita" value="1">
+					    Verificación
+					    <input type="radio" ng-model="visita" value="2">
+					    Asesoría
+					</div>
+					
+					<div class="form-group">			    		
+			              <button type="submit"  id="btnVisita" class="btn btn-success">Enviar</button>
+					</div>
+		    	</form>
+
+	    		
+	    		
+
+	    	</div>
+	    </div>    
+	</div>		
+</div>

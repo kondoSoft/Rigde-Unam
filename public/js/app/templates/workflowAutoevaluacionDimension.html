@@ -1,0 +1,122 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Proceso de Autoevaluación</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Indicadores</h3>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-primary">		
+				<div class="panel-heading">Buscar indicadores</div>
+				<div class="panel-body">
+					<form class="col-sm-12 col-md-12 panel-body" role="form" name="regFormBoletin">
+						<div class="row">
+							<div class="form-group col-sm-12 col-md-6 col-lg-6 ">
+							
+					        	<input 
+					        		id="q" 
+					        		name="q"
+					        		ng-model="q"
+					        		type="text"
+					        		class="form-control" 
+					        		placeholder="Nombre indicador/clave contiene"
+					        		>
+					        	
+					      	</div>
+					    </div>
+					    
+						
+			            <div class="row">
+					      	<div class="form-group col-sm-2 col-md-2 col-lg-2 ">
+					      		<button class="btn btn-primary" ng-class="bclass" type="button" ng-disabled="isSearching" ng-click="listind()">Buscar</button>
+					      	</div>
+						</div>   
+					</form>	
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			
+			Indicadores: <span class="badge">{{total_indicadores}}</span><br>
+			Indicadores evaluados: <span class="badge">{{getEvaluados()}}</span>
+		</div>
+		<div class="col-md-12">
+			<span>Porcentaje de avance:</span><br>
+			<div class="progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="{{getEvaluados()*100/total_indicadores | number:0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{getEvaluados()*100/total_indicadores | number:0}}%;">
+			    {{getEvaluados()*100/total_indicadores | number:0}}%
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			
+			<!--tabla dimensione-->
+			<table  class="table table-hover top10 " id="tramtable">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a id="ord1" class="order-list order-list-active" ng-click="doOrder(1)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a id="ord2" class="order-list" ng-click="doOrder(2)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				      	<th data-field="estatus">
+				      	<a id="ord5" class="order-list order-list-active" ng-click="doOrder(5)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Estatus
+				      	<a id="ord6" class="order-list" ng-click="doOrder(6)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+						<th data-field="porcentaje">
+				      		Porcentaje Autoevaluación
+				      	</th>				     
+				  		
+
+				  </tr>
+				</thead>
+
+				<tbody id="tbtram" >
+				  <tr  ng-repeat="indicador in misindicadoresauto track by indicador.cinid">
+		        		
+				  		 <td>
+			            	{{indicador.cinnombre}}
+			            	
+			            </td>
+			            <td class="text-center" ng-controller="MenuController">
+			            	<a  ng-if="hasAccess('accesoisi') && indicador.eval_completo != 2"  target="_self" href="#/autoevaluacion/workflow/evalular/{{cliid}}/indicador/{{indicador.cinid}}">{{indicador.cinclave}}</a>
+			            	<span  ng-if="hasAccess('accesomussi') || hasAccess('superadmin')">{{indicador.cinclave}}</span>
+
+			            	<span  ng-if="indicador.eval_completo == 2">{{indicador.cinclave}}</span>
+			            </td>
+			            <td class="text-center">
+			            	<span ng-if="indicador.eval_completo == 2">
+			            		<i class="glyphicon glyphicon-ok" style="color: green;"></i>
+			            	</span>
+			            	<span ng-if="indicador.eval_completo == null">
+			            		<i class="glyphicon glyphicon-time" style="color: blue;"></i>
+			            	</span>
+			            </td>
+			            <td>
+			            	<div class="progress progress-bar-succes">
+							  <div class="progress-bar progress-bar-info  progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{indicador.eval_porcentaje}}%;">
+							    {{indicador.eval_porcentaje}}%
+							  </div>
+							</div>
+			            </td>
+			           
+
+			        </tr>
+			        
+				</tbody>
+			</table>
+		</div>
+	</div>

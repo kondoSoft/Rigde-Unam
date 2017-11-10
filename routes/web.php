@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
@@ -35,4 +35,9 @@ Route::group(['prefix' => 'planesEstudio'], function() {
 Route::group(['prefix' => 'conteo'], function() {
      Route::get('enp', 'conteo\enpController@index')->name('conteo.enp.index');
      Route::get('cch', 'conteo\cchController@index')->name('conteo.cch.index');
+     Route::get('materiales', 'conteoMateriales\conteoMaterialesController@index')->name('conteo.materiales.index');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

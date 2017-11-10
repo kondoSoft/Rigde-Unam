@@ -1,0 +1,123 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Proceso de Autoevaluación</h3>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			
+			<!--tabla dimensione-->
+			<table class="table table-condensed " id="tramtable">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a id="ord1" class="order-list order-list-active" ng-click="doOrder(1)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a id="ord2" class="order-list" ng-click="doOrder(2)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				      <!--<th data-field="estatus">
+				      	<a id="ord5" class="order-list order-list-active" ng-click="doOrder(5)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Estatus
+				      	<a id="ord6" class="order-list" ng-click="doOrder(6)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>-->
+				     
+				  		<th data-field="comandos">
+				      	
+				      	</th>
+
+				  </tr>
+				</thead>
+
+				<tbody id="tbtram">
+				  <tr  ng-repeat="dimension in misdimensiones track by dimension.dimid">
+		        		
+				  		 <td>
+			            	{{dimension.dimnombre}}
+			            	
+			            </td>
+			            <td>
+			            	<a target="_self" href="#/autoevaluacion/workflow/{{cliid}}/dimension/{{dimension.dimid}}">{{dimension.dimclave}}</a>
+			            	
+			            </td>
+			            <!--<td>
+			            	<span ng-if="dimension.dimactiva == 1">
+			            		<i class="glyphicon glyphicon-ok" style="color: green;"></i>
+			            	</span>
+			            	<span ng-if="dimension.dimactiva == 2">
+			            		<i class="glyphicon glyphicon-ban-circle" style="color: red;"></i>
+			            	</span>
+			            </td>-->
+			            <td>
+			            	<a href="javascript:;"  ng-click="exportToExcel('#table1')">Descargar expediente</a>
+			            	
+			            </td>
+
+			        </tr>
+			        
+				</tbody>
+			</table>
+		</div>
+		<div style="display:none;">
+			<table id="table1" class="table table-condensed ">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a ng-click="doOrder(1)" class="order-list order-list-active" id="ord1"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a ng-click="doOrder(2)" class="order-list" id="ord2"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				      	<th data-field="estatus">
+				      	<a ng-click="doOrder(5)" class="order-list order-list-active" id="ord5"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Estado
+				      	<a ng-click="doOrder(6)" class="order-list" id="ord6"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+						<th data-field="porcentaje">
+				      		Porcentaje 
+				      	</th>
+				      	<th>
+				      		Avances observados ante el logro alcanzado
+				      	</th>				     
+				  		<th>
+				      		Elementos que permitieron o detuvieron el cumplimiento
+				      	</th>				     
+
+				  </tr>
+				</thead>
+
+				<tbody>
+				<tr>
+		        		
+				  		 <td class="ng-binding">
+			            	Plan de Desarrollo Institucional actualizado.
+			            	
+			            </td>
+			            <td>
+			            OAA 2.1
+			            	
+			            </td>
+			            <td>
+			            	Completo
+			            </td>
+			            <td>
+			            	
+							    20%
+							
+			            </td>
+			           
+
+			        </tr><!-- end ngRepeat: indicador in misindicadoresauto track by indicador.dimid -->
+			        
+				</tbody>
+			</table>
+		</div>
+	</div>

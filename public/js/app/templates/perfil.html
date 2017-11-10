@@ -1,0 +1,42 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3 >{{plantel.cvptl}}-{{plantel.nombre}} </h3>
+			
+		</div>
+		<div class="col-md-6">
+			<div>
+			  <div class="panel-heading">
+			    <h3 class="panel-title item">Dirección de la institución</h3>
+			  </div>
+			  <div class="panel-body">
+				<p><strong>Calle:</strong> {{plantel.calle}}</p>
+				<p><strong>Colonia:</strong> {{plantel.colonia}}</p>
+				<p><strong>Delegación:</strong> {{plantel.delegacion}}</p>
+				<p><strong>Estado:</strong> {{plantel.ciudad}}</p>
+				<p><strong>C.P. </strong>{{plantel.cpostal}}</p>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div>
+			  <div class="panel-heading">
+			    <h3 class="panel-title item">Datos de la institución</h3>
+			  </div>
+			  <div class="panel-body">
+				<p><strong>Director General:</strong> {{plantel.dirgral}}</p>  
+				<p><strong>Nivel:</strong> 
+					<span ng-if="plantel.nivel=='L'">Licenciatura</span>
+					<span ng-if="plantel.nivel=='C'">CCH</span>
+					<span ng-if="plantel.nivel=='P'">Preparatoria</span>
+				</p>
+				<p><strong>Correo electrónico:</strong> <a href="mailto: {{plantel.mail}}">{{plantel.mail}}</a></p>
+				<p><strong>Fax:</strong> {{plantel.fax}}</p>
+				<p><strong>Teléfono:</strong> {{plantel.telefono}}</p>
+			  </div>
+			</div>
+		</div>
+		<div class="col-ms-6">
+			<img  src="http://maps.googleapis.com/maps/api/staticmap?center={{plantel.colonia}},{{plantel.delegacion}},MX&zoom=16&size=600x300&maptype=roadmap&sensor=false">
+		</div>
+	</div>
