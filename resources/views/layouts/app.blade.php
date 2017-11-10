@@ -12,26 +12,26 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
         <!-- Latest compiled and minified CSS -->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- Optional theme -->
-        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
 
-        <link href="/css/nprogress.css" rel="stylesheet" />
-        <link href="/css/animate.css" rel="stylesheet" />
-        <link href="/css/please-wait.css" rel="stylesheet">
-        <link href="/css/autocomplete.css" rel="stylesheet" />
+        <link href="./css/nprogress.css" rel="stylesheet" />
+        <link href="./css/animate.css" rel="stylesheet" />
+        <link href="./css/please-wait.css" rel="stylesheet">
+        <link href="./css/autocomplete.css" rel="stylesheet" />
         <!-- El css de la app -->
         <link rel="stylesheet" href="/css/app2.css">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="/js/core/jquery.min.js"></script>
-        <script src="/js/core/angular.min.js"></script>
-        <script src="/js/core/angular-locale_es-es.js"></script>
-        <script src="/js/core/angular-cookies.min.js"></script>
+        <script src="./js/core/jquery.min.js"></script>
+        <script src="./js/core/angular.min.js"></script>
+        <script src="./js/core/angular-locale_es-es.js"></script>
+        <script src="./js/core/angular-cookies.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-        <script src="/js/core/bootstrap.min.js"></script>
-        <script src="/js/core/angular-strap.js" data-semver="v2.3.2"></script>
-        <script src="/js/core/angular-strap.tpl.js" data-semver="v2.3.2"></script>
+        <script src="./js/core/bootstrap.min.js"></script>
+        <script src="./js/core/angular-strap.js" data-semver="v2.3.2"></script>
+        <script src="./js/core/angular-strap.tpl.js" data-semver="v2.3.2"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -39,35 +39,35 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/js/extras/satellizer.js"></script>
-        <script src="/js/extras/angular-animate.min.js"></script>
-        <script src="/js/extras/angular-resource.min.js"></script>
-        <script src="/js/extras/angular-route.min.js"></script>
-        <script src="/js/extras/angular-sanitize.min.js"></script>
-        <script src="/js/extras/angular-scroll.min.js"></script>
-        <script src="/js/extras/loadingbar.js"></script>
-        <script src="/js/extras/angular-paginate.js"></script>
-        <script src="/js/extras/angular-validator.min.js"></script>
+        <script src="./js/extras/satellizer.js"></script>
+        <script src="./js/extras/angular-animate.min.js"></script>
+        <script src="./js/extras/angular-resource.min.js"></script>
+        <script src="./js/extras/angular-route.min.js"></script>
+        <script src="./js/extras/angular-sanitize.min.js"></script>
+        <script src="./js/extras/angular-scroll.min.js"></script>
+        <script src="./js/extras/loadingbar.js"></script>
+        <script src="./js/extras/angular-paginate.js"></script>
+        <script src="./js/extras/angular-validator.min.js"></script>
 
-        <script src="/js/extras/nprogress.js"></script>
-        <script src="/js/extras/noty.js"></script>
+        <script src="./js/extras/nprogress.js"></script>
+        <script src="./js/extras/noty.js"></script>
 
-        <script src="/js/extras/autocomplete.js"></script>
+        <script src="./js/extras/autocomplete.js"></script>
 
-        <script type="text/javascript" src="/js/extras/please-wait.js"></script>
-        <script type="text/javascript" src="/js/extras/angular-file-upload.min.js"></script>
+        <script type="text/javascript" src="./js/extras/please-wait.js"></script>
+        <script type="text/javascript" src="./js/extras/angular-file-upload.min.js"></script>
 
         <script type="text/javascript">
             var _tk = '<?php echo csrf_token(); ?>';
         </script>
-        <script src="/js/app.js"></script>
-        <script src="/js/app/services.js"></script>
-        <script src="/js/app/SecController.js"></script>
-        <script src="/js/app/controllers.js"></script>
-        <script src="/js/app/userscontroller.js"></script>
-        <script src="/js/app/accesoscontroller.js"></script>
-        <script src="/js/app/seguimientocontroller.js"></script>
-        <script src="/js/app/directives.js"></script>
+        <script src="./js/app.js"></script>
+        <script src="./js/app/services.js"></script>
+        <script src="./js/app/SecController.js"></script>
+        <script src="./js/app/controllers.js"></script>
+        <script src="./js/app/userscontroller.js"></script>
+        <script src="./js/app/accesoscontroller.js"></script>
+        <script src="./js/app/seguimientocontroller.js"></script>
+        <script src="./js/app/directives.js"></script>
     </head>
     <body resizable>
         <div loading-indicator></div>
@@ -97,7 +97,7 @@
                                     <!--<li ng-if="hasAccess('accesoisi') && isAuthenticated()"><a href="/#/perfil/me" style="border-left-width: 0px; padding-left: 30px; padding-top: 30px;color:#fff;">Mi perfil</a></li>
                                     <li ng-if="hasAccess('accesoisi') && isAuthenticated()"><a href="/#/faqs" style="border-left-width: 0px; padding-left: 30px; padding-top: 30px;color:#fff;">FAQs</a></li>-->
                                     @if (!Auth::guest())
-                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" class="font20" style="border-left-width: 0px; padding-left: 30px; padding-top: 30px;color:#fff;">Salir</a></li>  
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" class="font20" style="border-left-width: 0px; padding-left: 30px; padding-top: 30px;color:#fff;">Salir</a></li>
                                         <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
