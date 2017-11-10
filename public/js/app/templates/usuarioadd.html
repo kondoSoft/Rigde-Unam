@@ -1,0 +1,156 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Alta de usuario</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" col-xs-12 col-sm-8">
+		    <div class="alert alert-info">
+		    	<strong>Los campos marcados con * son obligatorios</strong>
+		    </div>
+		    
+		    <form class="form-horizontal top10" angular-validator-submit="savenewuser(usernewForm)" angular-validator  role="form" name="usernewForm" novalidate>
+		    	
+		    	<div  class="form-group"  ng-init="tipo=1">
+		    	   	<label for="planestudios">Selecciona un grupo de usuario*</label>
+		    	   	<div class="checkbox">
+					  <label>
+					    <input type="radio" name="tipo" ng-model="tipo" value="1" checked="checked">
+					    Usuario Mussi
+					  </label>
+					</div>
+					<div class="checkbox disabled">
+					  <label>
+					    <input type="radio" name="tipo" ng-model="tipo" value="2">
+					    Usuario ISI
+					  </label>
+					</div>
+		    		
+		    	</div>
+
+		    	<div class="form-group" ng-if="tipo==2">
+				   	<label for="planestudios">Busca una ISI y Plan de estudios*</label>
+				   	<p><span>Ejemplo: 8895-25-LICENCIADO EN PSICOLOGÍA</span></p>
+				   	<!--<autocomplete name="plan" ng-model="plan" data="planisi" attr-placeholder="ISI y plan de estudios" autocomplete-required="true"></autocomplete>-->
+				   	 <input class="form-control" name="plan" ng-model="plan" bs-options="item for item in planisi" placeholder="Clave plantel-Clave Plan" data-limit="10" data-placement="auto bottom" bs-typeahead type="text">
+				</div>
+		
+			   	<div class="form-group" ng-show="tipo==2">
+					<p><h3 class="text-info">Agregar datos del responsable</h3></p>
+				</div>
+
+		    	<div class="form-group" >
+		    		<label for="nombre" class="{{cblass}}">Nombre*</label>
+				    <input type="text" 
+		                class="validate form-control"
+		                ng-model="user.clinombre"
+		                invalid-message="'Escribe tu nombre'"
+		                required-message="''"
+		                required
+		                id="clinombre" 
+		                name="clinombre"
+		                validate-on="dirty"
+		                />
+				</div>
+		              
+		        <div class="form-group" >
+		            <label for="apellidos" class="{{cblass}}">Apellido Paterno*</label>
+		        	
+			        <input type="text"
+		                class="validate form-control"
+		                ng-model="user.cliapellidopaterno"
+		                invalid-message="'Apellido incorrecto'"
+		                required-message="''"
+		                required
+		                id="apellidop"
+		                name="apellidop"
+						validate-on="dirty"
+		                />
+				</div>
+				<div class="form-group" >
+		            <label for="apellidom" class="{{cblass}}">Apellido Materno*</label>
+		        	
+			        <input type="text"
+		                class="validate form-control"
+		                ng-model="user.cliapellidomaterno"
+		                invalid-message="'Apellido incorrecto'"
+		                required-message="''"
+		                required
+		                id="apellidom"
+		                name="apellidom"
+						validate-on="dirty"
+		                />
+				</div>
+				<div class="form-group">
+					<label for="email" class="{{cblass}}">Correo electrónico*</label>
+				    <input type="email" 
+				    	class="validate form-control" 
+				    	ng-model="user.climail"
+						invalid-message="'Formato incorrecto de email'"
+	                    required-message="''"
+	                    required        				    	
+						id="climail" 
+						name="climail"
+						validate-on="dirty"
+				    	/>
+				   	
+				</div>
+				
+				<div class="col-sm-12 alert alert-warning" style="font-size:11px;">
+					<strong>Por seguridad tu contraseña tiene que tener:</strong>
+					<ul class="list-pass">
+						<li><strong>8 caracteres</strong></li>
+						<li><strong>Por lo menos un número</strong></li>
+						<li><strong>Por lo menos una letra mayúscula</strong></li>
+					</ul>
+				</div>
+
+				<div class="form-group">
+				    <label for="password" class="uk-form-label {{cbclass}}">Contraseña*</label>
+				   	<input type="password" 
+				   		id="password"  
+				   		name="password"  
+				   		ng-model="user.clicontrasena" 
+				   		class="validate form-control" 
+				   		validator="passwordValidator(user.clicontrasena,1) === true"
+				   		validate-on="dirty"
+	                    invalid-message="passwordValidator(user.clicontrasena)"
+	                    required-message="''"
+	                    
+				   		/>
+				   	
+				</div>
+				
+				<div class="form-group">
+				   	<label for="password2" class="{{cbclass}}">Contraseña nuevamente*</label>
+				    <input type="password"
+				    	ng-model="clicontrasenarepeat" 
+				    	class="validate form-control" 
+				    	id="password2" 
+				    	name="password2" 
+				    	validator="passrepeat() ===true"
+	                    validate-on="dirty"
+	                    invalid-message="'Contraseñas no coinciden!'"
+	                    required-message="''"
+	                    ng-required="user.clicontrasena?true:false"
+				    	/>
+				   
+				</div>					
+			  <button type="submit"  id="registersubmit" class="btn btn-success">Guardar <i class="mdi-content-send right"></i></button>
+			</form>
+			
+		</div>
+	</div>
+		
+	<div class="row top30"></div>
+	
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 col-xs-12">
+			<p class="text-center"><a href="#/users">Regresar a la lista</a></p>
+		</div>
+		<div class="col-md-3"></div>
+	</div>	
+
+	
+</div>

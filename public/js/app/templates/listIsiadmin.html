@@ -1,0 +1,217 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Lista de instituciones incorporadas</h3>
+			<div class="panel panel-primary">		
+				<div class="panel-heading">Buscar institución</div>
+				<div class="panel-body">
+					<form class="col-sm-12 col-md-12 panel-body" role="form" name="regFormBoletin">
+						<div class="row">
+							<div class="form-group col-sm-12 col-md-6 col-lg-6 ">
+							
+					        	<input 
+					        		id="q" 
+					        		name="q"
+					        		ng-model="q"
+					        		type="text"
+					        		class="form-control" 
+					        		placeholder="Nombre institución/clave contiene"
+					        		>
+					        	
+					      	</div>
+					    </div>
+					    
+					   
+			            <div class="row">
+					      	<div class="form-group col-sm-2 col-md-2 col-lg-2 ">
+					      		<button class="btn btn-primary" ng-class="bclass" type="button" ng-disabled="isSearching" ng-click="listind()">Buscar</button>
+					      	</div>
+						</div>   
+					</form>	
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-condensed " id="isistable">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a id="ord1" class="order-list order-list-active" ng-click="doOrder(1)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a id="ord2" class="order-list" ng-click="doOrder(2)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      </th>
+				      <th data-field="estatus">
+				      	<a id="ord5" class="order-list order-list-active" ng-click="doOrder(5)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Fecha termino
+				      	<a id="ord6" class="order-list" ng-click="doOrder(6)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      </th>
+				      <th data-field="opciones">
+				      
+				      </th>
+				     
+
+				  </tr>
+				</thead>
+
+				<tbody id="tbtram">
+				  <tr  ng-repeat="isi in misisi track by isi.cliid">
+		        		
+				  		 <td class="text-overflow" style="max-width:250px;">
+			            	<a href="#/autoevaluacion/workflow/{{isi.cliid}}">{{isi.nombre_ptl}}</a>
+			            	
+			            </td>
+			            <td>
+			            	{{isi.cliusername}}
+			            	
+			            </td>
+			            <td>
+			            	{{isi.mu_fecha_termino}}
+			            </td>
+			            <td>
+			            	<!--<a href="javascript:;"  ng-click="exportToExcel('#tableisi')">Descargar expediente</a>-->
+			            </td>
+
+			        </tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div style="display:none">
+			<table id="tableisi" class="table table-condensed ">
+				<thead>
+				  <tr>
+				  		<th data-field="nombre">
+				      	Nombre
+				      	</th>
+
+				      <th data-field="clave">
+				      	<a ng-click="doOrder(1)" class="order-list order-list-active" id="ord1"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Clave
+				      	<a ng-click="doOrder(2)" class="order-list" id="ord2"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>
+				      <!--<th data-field="estatus">
+				      	<a id="ord5" class="order-list order-list-active" ng-click="doOrder(5)"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				      	Estatus
+				      	<a id="ord6" class="order-list" ng-click="doOrder(6)"><i class=" glyphicon glyphicon-chevron-down"></i></a>
+				      	</th>-->
+				     
+				  		<th data-field="comandos">
+				      	
+				      	</th>
+
+				  </tr>
+				</thead>
+
+				<tbody >
+				  <tr >
+		        		
+				  		 <td class="ng-binding">
+			            	Organización Académico-Administrativa
+			            	
+			            </td>
+			            <td>
+			            	OAA
+			            	
+			            </td>
+			          
+			            <td>
+			            	Completo
+			            	
+			            </td>
+
+			        </tr>
+			        <tr>
+		        		
+				  		 <td class="ng-binding">
+			            	Servicios Académicos
+			            	
+			            </td>
+			            <td>
+			            	SA
+			            	
+			            </td>
+			         
+			            <td>
+			            	Incompleto
+			            	
+			            </td>
+
+			        </tr>
+			        <tr>
+		        		
+				  		 <td class="ng-binding">
+			            	Contexto Social
+			            	
+			            </td>
+			            <td>
+			            	CS
+			            	
+			            </td>
+			           
+			            <td>
+			            	Incompelto
+			            	
+			            </td>
+
+			        </tr><tr >
+		        		
+				  		 <td class="ng-binding">
+			            	Planta Física
+			            	
+			            </td>
+			            <td>
+			            	PF
+			            	
+			            </td>
+			            
+			            <td>
+			            	Incompleto
+			            	
+			            </td>
+
+			        </tr><tr>
+		        		
+				  		 <td class="ng-binding">
+			            	Recursos Humanos
+			            	
+			            </td>
+			            <td>
+			            	RH
+			            	
+			            </td>
+			        
+			            <td>
+			            	Incompleto
+			            	
+			            </td>
+
+			        </tr><tr >
+		        		
+				  		 <td class="ng-binding">
+			            	Recursos Materiales
+			            	
+			            </td>
+			            <td>
+			            	RM
+			            	
+			            </td>
+			            
+			            <td>
+			            	Incompleto
+			            	
+			            </td>
+
+			        </tr><!-- end ngRepeat: dimension in misdimensiones track by dimension.dimid -->
+			        
+				</tbody>
+			</table>
+		</div>
+	</div>

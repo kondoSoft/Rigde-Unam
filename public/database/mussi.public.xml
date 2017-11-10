@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="mussi" schema="public" type="PostgreSQL - 9.3.5">
+   <tables>
+      <table name="appacceso" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="accid" nullable="false" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="1" name="accnombre" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="accclientecrea" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="accclientemodifica" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="6" id="4" name="created_at" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="5" name="updated_at" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="6" name="accdescripcion" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="accid" sequenceNumberInPK="1"/>
+         <index name="acce_unique" unique="true">
+            <column ascending="true" name="accid"/>
+         </index>
+      </table>
+      <table name="appcliente" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('cliid_seq'::regclass)" digits="0" id="0" name="cliid" nullable="false" remarks="" size="10" type="serial">
+            <child column="guidusuario" foreignKey="appgrupousuario_guidusuario_foreign" implied="false" onDeleteCascade="false" table="appgrupousuario"/>
+            <child column="mu_id_usuario" foreignKey="mussiusuariosautoevaluacion_mu_id_usuario_foreign" implied="false" onDeleteCascade="false" table="mussiusuariosautoevaluacion"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="clinombre" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="cliapellidopaterno" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="climail" nullable="false" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="clicontrasena" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="cliestatus" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="remember_token" nullable="true" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="7" name="created_at" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="8" name="updated_at" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="cliapellidomaterno" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="cliindex" nullable="true" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="11" name="cliusername" nullable="true" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="clitoken" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="13" name="clitipousuario" nullable="true" remarks="" size="1" type="varchar"/>
+         <primaryKey column="cliid" sequenceNumberInPK="1"/>
+         <index name="appcliente_pkey" unique="true">
+            <column ascending="true" name="cliid"/>
+         </index>
+      </table>
+      <table name="appclienteacceso" numRows="30" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('claid_seq'::regclass)" digits="0" id="0" name="claid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="clacliente" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="claacceso" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="claclientecrea" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="claclientemodifica" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="6" id="5" name="created_at" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="6" name="updated_at" nullable="false" remarks="" size="29" type="timestamp"/>
+         <primaryKey column="claid" sequenceNumberInPK="1"/>
+         <index name="appclienteacceso_pkey" unique="true">
+            <column ascending="true" name="claid"/>
+         </index>
+      </table>
+      <table name="appgrupo" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('appgrupo_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial">
+            <child column="guidgrupo" foreignKey="appgrupousuario_guidgrupo_foreign" implied="false" onDeleteCascade="false" table="appgrupousuario"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="gnombre" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="gclaveisi" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="usercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="6" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="7" name="gdescripcion" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="appgrupo_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="appgrupousuario" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('appgrupousuario_guid_seq'::regclass)" digits="0" id="0" name="guid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="guidusuario" nullable="false" remarks="" size="10" type="int4">
+            <parent column="cliid" foreignKey="appgrupousuario_guidusuario_foreign" implied="false" onDeleteCascade="false" table="appcliente"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="guidgrupo" nullable="false" remarks="" size="10" type="int4">
+            <parent column="gid" foreignKey="appgrupousuario_guidgrupo_foreign" implied="false" onDeleteCascade="false" table="appgrupo"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="usercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="6" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <primaryKey column="guid" sequenceNumberInPK="1"/>
+         <index name="appgrupousuario_pkey" unique="true">
+            <column ascending="true" name="guid"/>
+         </index>
+      </table>
+      <table name="catresponsableindicador" numRows="30" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('catresponsableindicador_rinid_seq'::regclass)" digits="0" id="0" name="rinid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="rincargo" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="cusercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="cusermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="5" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <primaryKey column="rinid" sequenceNumberInPK="1"/>
+         <index name="catresponsableindicador_pkey" unique="true">
+            <column ascending="true" name="rinid"/>
+         </index>
+      </table>
+      <table name="indicadorformula" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('indicadorformula_infid_seq'::regclass)" digits="0" id="0" name="infid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="infindicador" nullable="false" remarks="" size="10" type="int4">
+            <parent column="cinid" foreignKey="indicadorformula_infindicador_foreign" implied="false" onDeleteCascade="false" table="mussicatindicador"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="infporcentual" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="infdefvariables" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="infformula" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="cusercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="cusermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="infvarnombre" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="10" name="infvarvalue" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="infid" sequenceNumberInPK="1"/>
+         <index name="indicadorformula_pkey" unique="true">
+            <column ascending="true" name="infid"/>
+         </index>
+      </table>
+      <table name="migrations" numRows="15" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="migration" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="1" name="batch" nullable="false" remarks="" size="10" type="int4"/>
+      </table>
+      <table name="mussiautoevaluacion" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussiautoevaluacion_mid_seq'::regclass)" digits="0" id="0" name="mid" nullable="false" remarks="" size="10" type="serial">
+            <child column="mu_id_autoevaluacion" foreignKey="mussiusuariosautoevaluacion_mu_id_autoevaluacion_foreign" implied="false" onDeleteCascade="false" table="mussiusuariosautoevaluacion"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="mestatus" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="mfechainicio" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="3" name="mfechafin" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="4" name="masignado" nullable="false" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="cusercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="cusermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="mperiodo" nullable="false" remarks="" size="9" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="mdescripcion" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="6" id="11" name="mfinicioprimera" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="12" name="mffinprimera" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="13" name="mfiniciosegunda" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="14" name="mffinsegunda" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="15" name="mfiniciotercera" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="16" name="mffintercera" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="17" name="mfiniciocuarta" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="18" name="mffincuarta" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="19" name="mfinicioquitna" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="20" name="mffinquinta" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="21" name="mfiniciosexta" nullable="false" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="6" id="22" name="mffinsexta" nullable="false" remarks="" size="29" type="timestamp"/>
+         <primaryKey column="mid" sequenceNumberInPK="1"/>
+         <index name="mussiautoevaluacion_pkey" unique="true">
+            <column ascending="true" name="mid"/>
+         </index>
+      </table>
+      <table name="mussicatindicador" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussicatindicador_cinid_seq'::regclass)" digits="0" id="0" name="cinid" nullable="false" remarks="" size="10" type="serial">
+            <child column="infindicador" foreignKey="indicadorformula_infindicador_foreign" implied="false" onDeleteCascade="false" table="indicadorformula"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="cinnombre" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="cinclave" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="cintipo" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="cinorigen" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="cinobjetivo" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="cinpertinencia" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="7" name="cinperiodicidad" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="8" name="cinactivo" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="cinresponsableseguimiento" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="cinresponsableejecucion" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="11" name="cindimension" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="12" name="cusercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="13" name="cusermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="14" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="15" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="16" name="cinextra" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="cinid" sequenceNumberInPK="1"/>
+         <index name="mussicatindicador_pkey" unique="true">
+            <column ascending="true" name="cinid"/>
+         </index>
+      </table>
+      <table name="mussidimension" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussidimension_dimid_seq'::regclass)" digits="0" id="0" name="dimid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="dimdescripcion" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="dimnombre" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="dimclave" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="dimactiva" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="usercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <primaryKey column="dimid" sequenceNumberInPK="1"/>
+         <index name="mussidimension_pkey" unique="true">
+            <column ascending="true" name="dimid"/>
+         </index>
+      </table>
+      <table name="mussievaluacionindicador" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussievaluacionindicador_eval_id_seq'::regclass)" digits="0" id="0" name="eval_id" nullable="false" remarks="" size="10" type="serial">
+            <child column="msegevalindicador" foreignKey="mussiseguimiento_msegevalindicador_foreign" implied="false" onDeleteCascade="false" table="mussiseguimiento"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="eval_indicador" nullable="false" remarks="" size="10" type="int4">
+            <parent column="uiid" foreignKey="mussievaluacionindicador_eval_indicador_foreign" implied="false" onDeleteCascade="false" table="mussiusuarioindicador"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="2" name="eval_porcentaje" nullable="false" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="3" name="eval_completo" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="eval_fecha_termino" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="5" name="cusercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="cusermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="eval_user" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="10" name="eval_autoevaluacion" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="11" name="eval_estrategias" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="eval_id" sequenceNumberInPK="1"/>
+         <index name="mussievaluacionindicador_pkey" unique="true">
+            <column ascending="true" name="eval_id"/>
+         </index>
+      </table>
+      <table name="mussiobservaciones" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussiobservaciones_obid_seq'::regclass)" digits="0" id="0" name="obid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="obretroalimentacion" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="obevidencia" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="obestrategias" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="obsegid" nullable="false" remarks="" size="10" type="int4">
+            <parent column="msegid" foreignKey="mussiobservaciones_obsegid_foreign" implied="false" onDeleteCascade="false" table="mussiseguimiento"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="usercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="obpublicada" nullable="false" remarks="" size="10" type="int4"/>
+         <primaryKey column="obid" sequenceNumberInPK="1"/>
+         <index name="mussiobservaciones_pkey" unique="true">
+            <column ascending="true" name="obid"/>
+         </index>
+      </table>
+      <table name="mussiretroalimentacion" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussiretroalimentacion_rid_seq'::regclass)" digits="0" id="0" name="rid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="rrespuesta" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="rsegid" nullable="false" remarks="" size="10" type="int4">
+            <parent column="msegid" foreignKey="mussiretroalimentacion_rsegid_foreign" implied="false" onDeleteCascade="false" table="mussiseguimiento"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="rusuario" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="rpublicado" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="usercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <primaryKey column="rid" sequenceNumberInPK="1"/>
+         <index name="mussiretroalimentacion_pkey" unique="true">
+            <column ascending="true" name="rid"/>
+         </index>
+      </table>
+      <table name="mussiseguimiento" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussiseguimiento_msegid_seq'::regclass)" digits="0" id="0" name="msegid" nullable="false" remarks="" size="10" type="serial">
+            <child column="obsegid" foreignKey="mussiobservaciones_obsegid_foreign" implied="false" onDeleteCascade="false" table="mussiobservaciones"/>
+            <child column="rsegid" foreignKey="mussiretroalimentacion_rsegid_foreign" implied="false" onDeleteCascade="false" table="mussiretroalimentacion"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="msegavance" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="msegcumplimiento" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="msegestrategias" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="msegevalindicador" nullable="false" remarks="" size="10" type="int4">
+            <parent column="eval_id" foreignKey="mussiseguimiento_msegevalindicador_foreign" implied="false" onDeleteCascade="false" table="mussievaluacionindicador"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="usercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="8" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="msegcompleto" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="10" name="mpublicado" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="0" digits="17" id="11" name="msegporcentaje" nullable="false" remarks="" size="17" type="float8"/>
+         <primaryKey column="msegid" sequenceNumberInPK="1"/>
+         <index name="mussiseguimiento_pkey" unique="true">
+            <column ascending="true" name="msegid"/>
+         </index>
+      </table>
+      <table name="mussiusuarioindicador" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussiusuarioindicador_uiid_seq'::regclass)" digits="0" id="0" name="uiid" nullable="false" remarks="" size="10" type="serial">
+            <child column="eval_indicador" foreignKey="mussievaluacionindicador_eval_indicador_foreign" implied="false" onDeleteCascade="false" table="mussievaluacionindicador"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="uiuserid" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="uiindid" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="usermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="5" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <primaryKey column="uiid" sequenceNumberInPK="1"/>
+         <index name="mussiusuarioindicador_pkey" unique="true">
+            <column ascending="true" name="uiid"/>
+         </index>
+      </table>
+      <table name="mussiusuariosautoevaluacion" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mussiusuariosautoevaluacion_mu_id_seq'::regclass)" digits="0" id="0" name="mu_id" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="mu_etapa" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="mu_id_autoevaluacion" nullable="false" remarks="" size="10" type="int4">
+            <parent column="mid" foreignKey="mussiusuariosautoevaluacion_mu_id_autoevaluacion_foreign" implied="false" onDeleteCascade="false" table="mussiautoevaluacion"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="mu_id_usuario" nullable="false" remarks="" size="10" type="int4">
+            <parent column="cliid" foreignKey="mussiusuariosautoevaluacion_mu_id_usuario_foreign" implied="false" onDeleteCascade="false" table="appcliente"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="4" name="mu_estatus" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="mu_fecha_termino" nullable="true" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="6" name="cusercreate" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="cusermodif" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="8" name="created_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="9" name="updated_at" nullable="false" remarks="" size="22" type="timestamp"/>
+         <primaryKey column="mu_id" sequenceNumberInPK="1"/>
+         <index name="mussiusuariosautoevaluacion_pkey" unique="true">
+            <column ascending="true" name="mu_id"/>
+         </index>
+      </table>
+   </tables>
+</database>

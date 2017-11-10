@@ -1,0 +1,203 @@
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3 ng-show="formIndi" >Evaluación de Indicador</h3>
+			<span class="text-danger">Fecha límite: Octubre 2015</span>
+			<form  name="indicadorForm">
+			<div ng-show="formIndi">
+				<div class="row">
+				  <div class="form-group col-md-4" show-errors>
+				    <label for="nomindicador">Nombre del Indicador*</label>
+				    <input required type="text" class="form-control" id="nomindicador" name="nomindicador" placeholder="" ng-model="nomindicador" disabled>
+				  </div>
+				  <div class="form-group col-md-4" show-errors>
+				    <label for="claveindicador">Clave*</label>
+				    <input required type="text" class="form-control" id="claveindicador" name="claveindicador" placeholder="" ng-model="claveindicador" disabled>
+				  </div>
+				  <div class="form-group col-md-4" show-errors>
+				   	<label for="tipoindicador">Tipo de Indicador*</label>
+				   	<input required type="text" class="form-control" id="tipoindicador" name="tipoindicador"placeholder="" ng-model="tipoindicador" disabled>
+				  </div>
+				</div>
+			<div class="row">
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="origen">Origen de Indicador*</label>
+				   	<textarea required class="form-control" rows="3" id="origen" name="origen" ng-model="origen" disabled></textarea>
+				</div>
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="objetivo">Objetivo*</label>
+				   	<textarea required class="form-control" rows="3" id="objetivo" name="objetivo" ng-model="objetivo" disabled></textarea>
+				</div>
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="pertinencia">Pertinencia*</label>
+				   	<textarea required class="form-control" rows="3" id="pertinencia" name="pertinencia" ng-model="pertinencia" disabled></textarea>
+				</div>	
+			</div> 
+			<div class="row">
+				<div class="form-group col-md-6" show-errors>
+				   	<label for="resseg">Responsable del Seguimiento</label>
+				   	<select disabled required id="resseg" name ="resseg" multiple ng-model="user.resseg" class="form-control">
+				    	 	      <option value="3" label="Dirección Técnica">Dirección Técnica</option>
+				    	 	      <option value="11" label="Apoderado Legal">Apoderado Legal</option>
+				   	</select>
+				</div>	
+				<div class="form-group col-md-6" show-errors>
+				   	<label for="reseje">Responsable de la Ejecución </label>
+				   	<select disabled required id="reseje" name="reseje" multiple ng-model="user.reseje"  class="form-control">
+				    	 	       <option value="3" label="Dirección Técnica">Dirección Técnica</option>
+				    	 	      <option value="11" label="Coordinadores Académicos ">Coordinadores Académicos </option>
+				   	</select>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="periodicidad">Periodicidad / Fechas de medición *</label>
+				   	<input disabled required type="text" class="form-control" id="periodicidad" name="periodicidad" placeholder="" ng-model="periodicidad">
+				</div>	
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="dimension">Dimensión*</label>
+				   	
+				    	 	     <input disabled type="text" name="dimension" id="dimension" ng-model="dimension"> 
+				   	
+				</div>
+
+				<div class="form-group col-md-4" show-errors>
+				   	<label  for="planestudios">Plan de estudios*</label>
+				    <input disabled type="text" name="planestudios" id="planestudios" ng-model="planestudios"> 
+				</div>
+
+			</div> 
+			
+			<!--<button type="submit" class="btn btn-primary" ng-click="saveIndicador()">Guardar</button>-->
+
+			</div>
+			</form>
+			<form name="formForm">
+				<div ng-show="formuFormula">
+					<h4>Fórmula del indicador</h4> 
+					<span class="label label-info" ng-show="textinfoform">{{textinfoform}}</span>
+					<!--<div class="row">
+						<div class="form-group col-md-4" show-errors>
+							<label for="porcentual">Fórmula porcentual*</label>
+							<input type="checkbox" class="form-control" id="porcentual" name="porcentual" ng-model="porcentual" ng-change="changePorcentual();">
+						</div>
+					</div>-->
+					<div class="row">
+						<input type="hidden" class="form-control" name="idindicador" ng-model="idindicador" >
+						<div class="form-group col-md-4" show-errors>
+					   		<label for="formulacalculo">Fórmula para su cálculo</label>
+					   		<textarea disabled required ng-change="parserFormula();" name="textFormula" ng-model="textFormula" class="form-control" rows="3" id="formulacalculo"></textarea>
+					   		<!--<span class="text-info">Variables encontradas : {{variablesform}}</span>-->
+						</div>
+						
+						<div class="form-group col-md-4" show-errors>
+						   	<label for="variablesformula">Variables de la fórmula</label>
+						   	<textarea disabled required class="form-control" rows="3" name="textVariables" ng-model="textVariables" id="variablesformula"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						
+						<div class="form-group col-md-12" show-errors>
+					   	<label for="formulacalculo">Indica con que variables cumples:</label>	
+					   		<label>MER:
+							    <input type="checkbox" ng-change="changeCheck();" ng-model="checkboxModel.value1">
+							 </label>
+							 <label>Ae:
+							    <input type="checkbox" ng-change="changeCheck2();" ng-model="checkboxModel.value2">
+							 </label>
+							 <label>DEI:
+							    <input type="checkbox" ng-change="changeCheck3();" ng-model="checkboxModel.value3">
+							 </label>
+						</div>
+					</div>
+					<div class="row">
+						
+						<div class="form-group col-md-12" show-errors>
+					   	<label for="porcentaje">Porcentaje de autoevaluación:</label>	
+							    <input type="input" ng-model="porcentaje" disabled="">
+							 
+						</div>
+					</div>
+
+					<div class="row">
+						
+						<div class="form-group col-md-12" show-errors>
+					   	<label for="porcentaje">Adjuntar archivo de evidencia de autoevaluación:</label>	
+							   <input type="file"   id="file" name='file' />
+						</div>
+					</div>
+
+					<div class="row">	
+						<div class="form-group col-md-4" ng-repeat="item in inputsformula" show-errors>
+							  <label for="var">Variable {{item.label}}</label>
+							  <input required  type="text" class="form-control" name="var" ng-model="item.name">
+						</div>
+						<div class="col-md-12">
+							<button type="submit" ng-click="evaluarIndi();" class="btn btn-primary">Guardar</button>
+						</div>
+						<div class="col-md-12" ng-show="textinfoform">
+							<a href="#/listaindicadores">Lista de Indicadores</a>
+						</div>
+
+					</div>  	
+				</div>
+				
+			</form>
+
+
+			<form  name="indicadorsegForm">
+			<div ng-show="formsegimiento">
+				<div class="row">
+					<div class="form-group col-md-4">
+						<h3 ng-show="formsegimiento" >Resultados y Seguimiento</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-4">
+						<h5 class="text-info">Porcentaje de autoevaluación: 80%</h5>
+					</div>
+				</div>
+				<div class="row">
+				  <div class="form-group col-md-4" show-errors>
+				    <label for="nomindicador">Nombre del Indicador*</label>
+				    <input required type="text" class="form-control" id="nomindicador" name="nomindicador" placeholder="" ng-model="nomindicador" disabled>
+				  </div>
+				  <div class="form-group col-md-4" show-errors>
+				    <label for="claveindicador">Clave*</label>
+				    <input required type="text" class="form-control" id="claveindicador" name="claveindicador" placeholder="" ng-model="claveindicador" disabled>
+				  </div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12" show-errors>
+					   	<label for="porcentaje">Adjuntar archivo de evidencia y seguimiento:</label>	
+							   <input type="file"   id="file" name='file' />
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="observaciones">Avances observados ante el logro alcanzado:</label>	
+						<textarea required class="form-control" rows="3" id="observaciones" name="observaciones" ng-model="observaciones" ></textarea> 
+					</div>
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="cumplimiento">Elementos que permitieron o detuvieron el cumplimiento:</label>	
+						<textarea required class="form-control" rows="3" id="cumplimiento" name="cumplimiento" ng-model="cumplimiento" ></textarea> 
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="reestructuracion">Reestructuración de estrategias de seguimiento y mejora</label>	
+						<textarea required class="form-control" rows="3" id="reestructuracion" name="reestructuracion" ng-model="reestructuracion" ></textarea> 
+					</div>
+					
+				</div>
+		
+
+			
+			<button type="submit" class="btn btn-primary" ng-click="saveEvidencias()">Guardar y enviar</button>
+
+			</div>
+			</form>
+
+		</div>
+	</div>
