@@ -21,7 +21,7 @@
         <link href="./css/please-wait.css" rel="stylesheet">
         <link href="./css/autocomplete.css" rel="stylesheet" />
         <!-- El css de la app -->
-        <link rel="stylesheet" href="/css/app2.css">
+        <link rel="stylesheet" href="./css/app2.css">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="./js/core/jquery.min.js"></script>
