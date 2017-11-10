@@ -9,6 +9,7 @@
     <div class="row top30">
         <div class=" col-md-6 col-md-offset-3">
             {!!Form::open(['class' => 'form-horizontal form-signin', 'name' => 'loginForm', 'route' => 'login'])!!}
+                {!! csrf_field() !!}
                 <div class="form-group col-md-12{!! $errors->has('username') ? ' has-error' : '' !!}">
                     <label for="username"><span  class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuario</label>
                     {!!Form::text('username', '', ['class' => 'form-control', 'id' => 'username', 'placeholder' => 'Usuario', 'required'])!!}
