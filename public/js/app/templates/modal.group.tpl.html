@@ -1,0 +1,65 @@
+<div role="dialog" tabindex="-1" class="modal top am-fade" style="display: block;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button ng-click="$hide()" class="close" type="button">×</button>
+				<h4 class="modal-title">Agregar usuario a grupos</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">		
+	
+		<div class="col s12 m12 l12">
+			<div>
+				<dir-pagination-controls boundary-links="true" on-page-change="changePage(newPageNumber)" template-url="/js/app/templates/dirpagination.html"></dir-pagination-controls>
+			</div>
+		</div>	
+		
+	</div>
+	<div class="row">
+		<table class="table table-striped table-hover " id="tramtable">
+			<thead>
+			  <tr>
+			      <th data-field="id">
+				      	ID
+				  </th>
+				  <th  class="text-center" data-field="nombre">
+				  	Nombre
+				  </th>
+				 
+				  <th class="text-center"  data-field="estatus">
+				  	Asignar
+				  </th>
+			  </tr>
+			</thead>
+			<tbody id="tbtram">			
+			  <tr class="collection-item" dir-paginate="group in groups | itemsPerPage: paginationdatagroup.per_page" total-items={{paginationdatagroup.total}} current-page="paginationdatagroup.current_page">
+		             	<td class="text-overflow " style="max-width:250px;">
+			            	{{group.gid}}
+			            </td>
+			            <td class="text-center">
+			            	{{group.gnombre}}</a>
+			            </td>
+			            
+			            <td class="text-center">
+			            	<span ng-if="group.guid !== null">
+			            		<input ng-checked="group.guid !== null"  ng-click="updateUsuaroGrupo(group.guid,group.gid)" ng-model="group.guid" type="checkbox" name="checkbox-{{group.guid}}" id="checkbox-{{group.guid}}">
+			            	</span>
+			            	<span ng-if="group.guid === null">
+			            		<input ng-checked="group.guid !== null"  ng-click="updateUsuaroGrupo(null,group.gid)" ng-model="group.guid" type="checkbox" name="checkbox-{{group.guid}}" id="checkbox-{{group.guid}}">
+			            	</span>
+			            </td>
+			          
+
+		           
+		        </tr>
+			</tbody>
+		</table>
+	</div>
+			</div>
+			<div class="modal-footer">
+				<button ng-click="$hide()" class="btn btn-default" type="button">Cerrar</button> 
+				<button ng-click="saveIndiUser()" class="btn btn-primary" type="button">Guardar cambios</button>
+			</div>
+		</div>
+	</div>
+</div>

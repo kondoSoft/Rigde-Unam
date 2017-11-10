@@ -1,0 +1,17 @@
+mussidimension
+migrations
+catresponsableindicador
+appclienteacceso
+appacceso
+mussiusuariosautoevaluacion
+appgrupousuario
+mussiretroalimentacion
+mussiobservaciones
+indicadorformula
+mussiseguimiento
+mussievaluacionindicador
+mussiusuarioindicador
+mussicatindicador
+mussiautoevaluacion
+appgrupo
+appcliente

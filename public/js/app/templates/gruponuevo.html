@@ -1,0 +1,79 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Alta de grupos</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" col-xs-12 col-sm-8">
+		    <div class="row">
+			    <div class="alert alert-info col-md-6 col-xs-12">
+			    	<strong>Los campos marcados con * son obligatorios</strong>
+			    </div>
+		    </div>
+		    <div class="row">
+		    <form class="form-horizontal top10 col-md-9 col-xs-12" angular-validator-submit="savegroup(groupnewForm)" angular-validator  role="form" name="groupnewForm" novalidate>
+			
+		    	<div class="form-group" >
+		    		<label for="nombre">Nombre del grupo*</label>
+				    <input type="text" 
+		                class="validate form-control"
+		                ng-model="group.gnombre"
+		                invalid-message="'Escribe un  nombre para el grupo'"
+		                required-message="''"
+		                required
+		                id="gnombre" 
+		                name="gnombre"
+		                validate-on="dirty"
+		                />
+				</div>
+				<div class="form-group" >
+		    		<label for="nombre">Descripción del grupo*</label>
+				    <textarea
+		                class="validate form-control"
+		                ng-model="group.gdescripcion"
+		                invalid-message="'Escribe una descripción para el grupo'"
+		                required-message="''"
+		                required
+		                id="gdescripcion" 
+		                name="gdescripcion"
+		                validate-on="dirty"
+		                >
+		                </textarea> 
+				</div>
+				<!--<div>
+					<div class="form-group">
+					   	<label for="planestudios">Agrega ISI y Plan de estudios</label>
+					   	<p><span>Ejemplo: 8895-25-LICENCIADO EN PSICOLOGÍA</span></p>
+					   
+					   	 <input class="form-control" name="plan" ng-model="plan" bs-options="item for item in planisi" placeholder="Clave plantel-Clave Plan" data-limit="10" data-placement="auto bottom" bs-typeahead type="text">
+					</div>	
+					<div class="form-group">
+						<button type="button" ng-click="agregarIsiPlan(plan)" id="btnagregarisi" class="btn btn-info">Agregar</button>
+					</div>
+					<div class="form-group" >
+			    		<label for="nombre">Lista de ISI y Plan de estudio*</label>
+			            <p>{{group.gclaveisi}}</p>
+					</div>
+				</div>-->
+				
+		
+		        <div class="form-group">
+			  		<button type="submit" id="registersubmit" class="btn btn-success">Guardar</button>
+			  	</div>
+			</form>
+			</div>
+		</div>
+	</div>
+		
+	<div class="row top30"></div>
+	
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 col-xs-12">
+			<p class="text-center"><a href="#/groups">Regresar a la lista</a></p>
+		</div>
+		<div class="col-md-3"></div>
+	</div>	
+
+	
+</div>

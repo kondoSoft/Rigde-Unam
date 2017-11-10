@@ -1,0 +1,277 @@
+.modal-backdrop.am-fade {
+  opacity: .5;
+  transition: opacity .15s linear;
+  &.ng-enter {
+    opacity: 0;
+    &.ng-enter-active {
+      opacity: .5;
+    }
+  }
+  &.ng-leave {
+    opacity: .5;
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+
+
+
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top30 { margin-top:30px; }
+.top40 { margin-top:40px; }
+.top50 { margin-top:50px; }
+.top80 { margin-top:80px; }
+.top100 { margin-top:100px; }
+.top110 { margin-top:110px; }
+
+.carousel-indicators {
+    bottom: -30px;
+}
+.carousel-indicators .active{
+    height: 20px;
+    width: 20px;
+    background-color:#034177;
+}
+.carousel-indicators li{
+    border: 1px solid #034177;
+    height: 20px;
+    width: 20px;
+}
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 250px;
+}
+.datepicker.dropdown-menu button {
+  outline: none;
+  border: 0px;
+}
+.datepicker.dropdown-menu tbody {
+  height: 180px;
+}
+.datepicker.dropdown-menu tbody button {
+  padding: 6px;
+}
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button,
+.datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+  height: 65px;
+}
+.timepicker.dropdown-menu {
+  padding: 0 4px;
+}
+.timepicker.dropdown-menu button {
+  outline: none;
+  border: 0px;
+}
+.timepicker.dropdown-menu tbody button {
+  padding: 6px;
+}
+
+.item{
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 5px solid;
+    border-bottom-color: #E89F15;
+}
+.item-video{
+    border-bottom: 0px ;
+    border-bottom-color: #fff;
+}
+.menu-item{
+    border-left-width: 0px; padding-left: 30px; padding-top: 15px;color:#fff;font-weight:bold;
+    text-align: center;
+}
+.title
+{
+    color: #fff !important;
+}
+.font20{
+    font-size: 20px;
+}
+.font24{
+    font-size: 24px;
+}
+.font16{
+    font-size: 16px;
+}
+.font18{
+    font-size: 18px;
+}
+.font12{
+    font-size: 12px;
+}
+
+body > .inner {
+    display: none;
+}
+
+body.pg-loaded > .inner {
+  display: block;
+}
+.pg-loading-screen{
+    opacity: 0.6;
+}
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar-inverse
+{
+	background-image: -moz-linear-gradient(top, #034177, #034177);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #034177), color-stop(1.0, #034177));
+	background-color: #034177;
+    border-color: #034177;
+
+}
+.paddtop{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.subnavbar{
+    background-image: -moz-linear-gradient(top, #3A73A5, #3A73A5);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #3A73A5), color-stop(1.0, #3A73A5));
+    background-color: #3A73A5;
+    max-height: 35px;
+    border-color: #3A73A5;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li:hover{
+    background-color: #d9a132;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #ffffff;
+}
+
+.footer
+{
+    background-color: #034177;
+    color: #FDEED1;
+    padding: 10px 0;
+}
+
+.footer .footer-wrapper ul {
+    list-style: outside none circle;
+}
+
+.footer .footer-wrapper a {
+    color: #FDEED1;
+    font-weight: normal;
+}
+
+.footer .footer-wrapper a:hover {
+    color: #FDEED1;
+    font-weight: normal;
+	background-color: #011275;
+	border-radius: 0px;
+}
+
+.wrapper-container
+{
+	margin: 30px 0px;
+	overflow:hidden;
+}
+
+.page-home.ng-leave
+{
+    -webkit-transform-origin: 0% 0%;
+    -webkit-animation: rotateFall 1s both ease-in;
+    -moz-transform-origin: 0% 0%;
+    -moz-animation: rotateFall 1s both ease-in;
+    transform-origin: 0% 0%;
+    animation: rotateFall 1s both ease-in;
+}
+
+.page-home.ng-enter
+{
+    -webkit-animation:scaleUp 0.5s both ease-in;
+    -moz-animation:scaleUp 0.5s both ease-in;
+    animation:scaleUp 0.5s both ease-in;
+}
+
+
+.page-home2.ng-enter, .ng-move{
+	-webkit-animation: fadeIn 1s;
+	-moz-animation: fadeIn 1s;
+	-o-animation: fadeIn 1s;
+	animation: fadeIn 1s;
+}
+
+.page-home2.ng-leave{
+	-webkit-animation: fadeOut 1s;
+	-moz-animation: fadeOut 1s;
+	-o-animation: fadeOut 1s;
+	animation: fadeOut 1s;
+}
+
+
+/* rotate and fall */
+
+@-webkit-keyframes rotateFall {
+
+    0% { -webkit-transform: rotateZ(0deg); }
+
+    20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
+
+    40% { -webkit-transform: rotateZ(17deg); }
+
+    60% { -webkit-transform: rotateZ(16deg); }
+
+    100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
+
+}
+
+@-moz-keyframes rotateFall {
+
+    0% { -moz-transform: rotateZ(0deg); }
+
+    20% { -moz-transform: rotateZ(10deg); -moz-animation-timing-function: ease-out; }
+
+    40% { -moz-transform: rotateZ(17deg); }
+
+    60% { -moz-transform: rotateZ(16deg); }
+
+    100% { -moz-transform: translateY(100%) rotateZ(17deg); }
+
+}
+
+@keyframes rotateFall {
+
+    0% { transform: rotateZ(0deg); }
+
+    20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+
+    40% { transform: rotateZ(17deg); }
+
+    60% { transform: rotateZ(16deg); }
+
+    100% { transform: translateY(100%) rotateZ(17deg); }
+
+}
+
+
+/* scale up */
+
+@keyframes scaleUp
+{
+	from{ opacity: 0.3; transform: scale(0.8); }
+}
+
+@-moz-keyframes scaleUp
+{
+	from{ opacity: 0.3; -moz-transform: scale(0.8); }
+}
+
+@-webkit-keyframes scaleUp
+{
+    from { opacity: 0.3; -webkit-transform: scale(0.8); }
+}

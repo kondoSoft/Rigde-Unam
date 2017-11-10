@@ -1,0 +1,52 @@
+<div class="container">
+	<div ng-hide="haveACode">
+		<div class="row">
+		    <div class="col m8 offset-m2 s12">
+		    	<h4 class="">Restablecer contraseña</h4>
+		    	
+		    	<div ng-hide="isNotValid" class="alert alert-danger" role="alert">El código ingresado no es código válido</div>
+		    	
+			    <form angular-validator-submit="doCheckCode()" angular-validator role="form" name="checkcodeForm" novalidate>
+				   	<div class="input-field">
+			            <label for="userName">Ingresa el código enviado por correo electrónico </label>
+			            
+				            <input type="text" 
+						    	ng-model="userCode" 
+						    	class="form-control" 
+			                    required-message="'Campo requerido'"
+			                    required        				    	
+						    	id="code" 
+								name="code"
+								validate-on="dirty"
+				            />
+					</div>
+				
+					<button type="submit" id="checksubmit" ng-disabled="isCheckDisabled" class="btn btn-block btn-success">Verificar código</button>
+					
+				</form>
+		    </div>
+		    <div class="col m4"></div>
+		</div>
+		
+		<div class="row top30"></div>
+		
+		<div class="row" ng-hide="isCheckDisabled">
+		    <div class="col m8 offset-m2 s12 text-center">
+		    	<a href="#/login">Cancelar</a>
+		    </div>
+		    <div class="col m4"></div>
+		</div>
+
+	</div>
+
+				
+	<div ng-hide="!haveACode">
+		<div class="row">
+		    <div class="col m8 offset-m2 s12">
+		    	<h4 class="uk-panel-title">Restablecer contraseña</h4>
+		    	<div ng-hide="isNotValid" class="alert alert-info" role="alert">Revisando código...</div>
+		    </div>
+		</div>
+	</div>	
+	
+</div>

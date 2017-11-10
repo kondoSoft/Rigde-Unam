@@ -1,0 +1,399 @@
+
+	<div class="row">
+		<div class="col-md-12">
+		<div ng-show="evaluacionFormIndicador">
+			<h3>Evaluación de Indicador</h3>
+			
+			<form  name="evaluacionForm">
+			<div>
+				<div class="row">
+				  <div class="form-group col-md-12" show-errors>
+				    <label for="nomindicador">Nombre del Indicador*</label>
+				    <!--<input  type="text" class="form-control" id="nomindicador" name="nomindicador" placeholder="" ng-model="nomindicador" disabled>-->
+				    <span>{{nomindicador}}</span>
+				  </div>
+				  <div class="form-group col-md-4" show-errors>
+				    <label for="claveindicador">Clave*</label>
+				    <input  type="text" class="form-control" id="claveindicador" name="claveindicador" placeholder="" ng-model="claveindicador" disabled>
+				  </div>
+				  <div class="form-group col-md-4" show-errors>
+				   	<label for="tipoindicador">Tipo de Indicador*</label>
+				   	<input  type="text" class="form-control" id="tipoindicador" name="tipoindicador"placeholder="" ng-model="tipoindicador" disabled>
+				  </div>
+				</div>
+			<div class="row">
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="origen">Origen de Indicador*</label>
+				   	<textarea  class="form-control" rows="3" id="origen" name="origen" ng-model="origen" disabled></textarea>
+				</div>
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="objetivo">Objetivo*</label>
+				   	<textarea  class="form-control" rows="3" id="objetivo" name="objetivo" ng-model="objetivo" disabled></textarea>
+				</div>
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="pertinencia">Pertinencia*</label>
+				   	<textarea  class="form-control" rows="3" id="pertinencia" name="pertinencia" ng-model="pertinencia" disabled></textarea>
+				</div>	
+			</div> 
+			<div class="row">
+				<div class="form-group col-md-6" show-errors>
+				   	<label for="resseg">Responsable del Seguimiento</label>
+				   	<select disabled  id="resseg" name ="resseg" multiple ng-model="user.resseg" class="form-control">
+				    	 	      <option value="3" label="Dirección Técnica">Dirección Técnica</option>
+				    	 	      <option value="11" label="Apoderado Legal">Apoderado Legal</option>
+				   	</select>
+				</div>	
+				<div class="form-group col-md-6" show-errors>
+				   	<label for="reseje">Responsable de la Ejecución </label>
+				   	<select disabled  id="reseje" name="reseje" multiple ng-model="user.reseje"  class="form-control">
+				    	 	       <option value="3" label="Dirección Técnica">Dirección Técnica</option>
+				    	 	      <option value="11" label="Coordinadores Académicos ">Coordinadores Académicos </option>
+				   	</select>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="periodicidad">Periodicidad / Fechas de medición *</label>
+				   	<input disabled  type="text" class="form-control" id="periodicidad" name="periodicidad" placeholder="" ng-model="periodicidad">
+				</div>	
+				<div class="form-group col-md-4" show-errors>
+				   	<label for="dimension">Dimensión*</label>
+				   	
+				    	 	     <input disabled type="text" name="dimension" id="dimension" ng-model="dimension"> 
+				   	
+				</div>
+
+				<div class="form-group col-md-4" show-errors>
+				   	<label  for="planestudios">Plan de estudios*</label>
+				    <input disabled type="text" name="planestudios" id="planestudios" ng-model="planestudios"> 
+				</div>
+
+			</div> 
+			
+			<!--<button type="submit" class="btn btn-primary" ng-click="saveIndicador()">Guardar</button>-->
+
+			</div>
+			</form>
+			<form name="formFormulaEval">
+				<div >
+					<h4>Fórmula del indicador</h4> 
+					<span class="label label-info" ng-show="textinfoform">{{textinfoform}}</span>
+					
+					<div class="row">
+						
+						<div class="form-group col-md-4">
+					   		<label for="formulacalculo">Fórmula para su cálculo</label>
+					   		<textarea disabled  ng-change="parserFormula();" name="textFormula" ng-model="textFormula" rows="3" id="formulacalculo"></textarea>
+					   		
+						</div>
+						
+						<div class="form-group col-md-4">
+						   	<label for="variablesformula">Variables de la fórmula</label>
+						   	<textarea disabled  rows="3" name="textVariables" ng-model="textVariables" id="variablesformula"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<!-- valdar porcentual o capturar datos-->
+						<div class="form-group col-md-12" ng-show="infporcentual==1">
+					   	<label for="formulacalculo" >Indica con que variables cumples:</label>	
+					   		
+						</div>
+						<div class="form-group col-md-12" ng-show="infporcentual==0">
+						<label for="formulacalculo2" >Indica las variables:</label>	
+						</div>
+					</div>
+					<div class="row" ng-show="infporcentual==0">	
+						<div class="form-group col-md-4" ng-repeat="item in inputsformula">
+							  <label for="var">Variable {{item.label}}</label>
+							  <input required  type="text"  id="text{{item.id}}" name="text{{item.id}}" ng-model="item.value" >
+						</div>
+						<div class="form-group col-md-4" >
+							 <button class="btn btn-primary" type="button" ng-click="calcularPorcentaje();">Calcular porcentaje</button>
+						</div>
+						
+
+					</div>  
+					<div class="row" ng-show="infporcentual==1">	
+						<div class="form-group col-md-4" ng-repeat="item in inputsformula">
+							  <label for="var">Variable {{item.label}}</label>
+							  <input  type="checkbox" name="check{{item.id}}" id="check{{item.id}}"  ng-model="cheked[item.value]"  ng-change="changeCheck(item.id);">
+					</div>
+						
+
+					</div>
+
+
+					<div class="row">
+						
+						<div class="form-group col-md-12">
+					   	<label for="porcentaje">Porcentaje de autoevaluación:</label>	
+							    <input required type="input" name="porcentaje" id="porcentaje" ng-model="porcentaje" disabled="">
+							 
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="form-group col-md-4" show-errors>
+						   	<label for="estrategias">Diseño de estrategias*</label>
+						   	<textarea  class="form-control" rows="3" id="estrategias" name="estrategias" ng-model="estrategias" ></textarea>
+						</div>
+						
+					</div> 
+					
+
+					<div class="row">	
+						
+						<div class="col-md-12">
+							<button type="submit" ng-click="evaluarIndi();" class="btn btn-primary">Guardar</button>
+						</div>
+						
+					</div>  	
+				</div>
+				
+			</form>
+			<div class="row">
+				<div class="col-md-12" style="padding-top:30px;">
+					<form name="formUpload" action="{{alfticket}}" method='POST' enctype='multipart/form-data'  accept-charset="utf-8">
+					<input id="mme-token" type="hidden" name="_token" value="{{token}}">
+						<div class="row">
+								
+								<!--<div class="form-group col-md-12" show-errors>
+							   	<label for="porcentaje">Adjuntar archivo de evidencia de autoevaluación:</label>	
+									   <input type="file"   id="file" name='file' check-file-size=""  />
+								</div>
+								<div class="col-md-12">
+									<span class="text-waring">Nota: Archivos (*.pdf,*.doc, *.docx) menores a 5Mb</span>
+								</div>
+								<div class="form-group col-md-6">
+									
+									 <input class="btn btn-success"  type="submit" name="submit" value="Adjuntar"> 
+								</div>-->
+				 <div class="col-md-3">
+
+                    <h3>Adjunta tus archivos</h3>
+
+                    <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                    Archivos (Word,Excel,PDF), maximo total 7MB
+                    <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+
+                   
+                </div>				 
+                <div class="col-md-9" style="margin-bottom: 40px">
+
+                    <h3>Lista Archivos </h3>
+                    <p>Núemero de archivos: {{ uploader.queue.length }}</p>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="50%">Nombre</th>
+                                <th ng-show="uploader.isHTML5">Tamaño</th>
+                                <th ng-show="uploader.isHTML5">Progreso</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in uploader.queue">
+                                <td><strong>{{ item.file.name }}</strong></td>
+                                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1048576|number:2 }} MB</td>
+                                <td ng-show="uploader.isHTML5">
+                                    <div class="progress" style="margin-bottom: 0;">
+                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                </td>
+                                <td nowrap>
+                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                        <span class="glyphicon glyphicon-upload"></span> Subir
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                        <span class="glyphicon glyphicon-trash"></span> Remover
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+                    	<div>
+                            Tamaño total: {{totalsize/1048576 | number:2}} MB
+                            
+                        </div>
+                        <div>
+                            Progeso total:
+                            <div class="progress" style="">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                            <span class="glyphicon glyphicon-upload"></span> Subir todos
+                        </button>
+                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancelar todos
+                        </button>
+                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                            <span class="glyphicon glyphicon-trash"></span> Remover todos
+                        </button>
+                    </div>
+
+                </div>
+							</div>
+					</form>	
+				</div>
+				
+			</div>
+	</div>	
+	<div ng-controller="AutoevaluacionResultadoSegController">
+		<form  name="indicadorsegForm">
+			<input type="hidden" name="evalinid" id="evalinid" ng-model="evalinid" value="{{evalinid}}">
+			<div ng-show="formsegimiento">
+				<div class="row">
+					<div class="form-group col-md-4">
+						<h3 ng-show="formsegimiento" >Resultados y Seguimiento</h3>
+					</div>
+				</div>
+				
+				<div class="row jumbotron">
+				  	<div class="form-group col-md-4" >
+				    	<label for="nomindicador">Nombre del Indicador:</label><br>
+				    <!--<input type="text" class="form-control" id="nomindicador" name="nomindicador" placeholder="" ng-model="nomindicador" disabled>-->
+				    	<span class="">{{nomindicador}}</span>
+				  	</div>
+				  	<div class="form-group col-md-4" >
+				   	 	<label for="claveindicador">Clave:</label><br>
+				   	 <!--<input type="text" class="form-control" id="claveindicador" name="claveindicador" placeholder="" ng-model="claveindicador" disabled>-->
+				    	<span class="">{{claveindicador}}</span>
+				  	</div>
+				 	<div class="form-group col-md-4">
+						<label class="">Porcentaje de autoevaluación: {{porcentaje}} % </label>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="{{porcentaje}}" aria-valuemin="0" aria-valuemax="100" style="width:{{porcentaje}}%">
+						    <span class="sr-only"> {{porcentaje}} %</span>
+						  </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-6">
+						<h3 ng-show="formsegimiento" >Evidencias de resultado y seguimiento</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="observaciones">Avances observados ante el logro alcanzado:</label>	
+						<textarea required class="form-control" rows="3" id="observaciones" name="observaciones" ng-model="observaciones" ></textarea> 
+					</div>
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="cumplimiento">Elementos que permitieron o detuvieron el cumplimiento:</label>	
+						<textarea required class="form-control" rows="3" id="cumplimiento" name="cumplimiento" ng-model="cumplimiento" ></textarea> 
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="reestructuracion">Reestructuración de estrategias de seguimiento y mejora</label>	
+						<textarea required class="form-control" rows="3" id="reestructuracion" name="reestructuracion" ng-model="reestructuracion" ></textarea> 
+					</div>
+					
+				</div>
+				<button type="submit" class="btn btn-primary" ng-click="seguimientoIndi()">Guardar</button>
+
+			
+			
+
+				<div class="row">
+					<div class="col-md-3">
+
+                    <h3>Adjunta tus archivos</h3>
+
+                    <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                    Archivos (Word,Excel,PDF), maximo total 7MB
+                    <input type="file" nv-file-select="" uploader="uploader2" multiple  /><br/>
+
+                   
+                	</div>	
+					<div class="col-md-9" style="margin-bottom: 40px">
+
+	                    <h3>Lista Archivos </h3>
+	                    <p>Núemero de archivos: {{ uploader2.queue.length }}</p>
+
+	                    <table class="table">
+	                        <thead>
+	                            <tr>
+	                                <th width="50%">Nombre</th>
+	                                <th ng-show="uploader2.isHTML5">Tamaño</th>
+	                                <th ng-show="uploader2.isHTML5">Progreso</th>
+	                                <th>Estado</th>
+	                                <th>Acciones</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr ng-repeat="item in uploader2.queue">
+	                                <td><strong>{{ item.file.name }}</strong></td>
+	                                <td ng-show="uploader2.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+	                                <td ng-show="uploader2.isHTML5">
+	                                    <div class="progress" style="margin-bottom: 0;">
+	                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+	                                    </div>
+	                                </td>
+	                                <td class="text-center">
+	                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+	                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+	                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+	                                </td>
+	                                <td nowrap>
+	                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+	                                        <span class="glyphicon glyphicon-upload"></span> Subir
+	                                    </button>
+	                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+	                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
+	                                    </button>
+	                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+	                                        <span class="glyphicon glyphicon-trash"></span> Remover
+	                                    </button>
+	                                </td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+
+	                    <div>
+	                    	<div>
+                            	Tamaño total: {{totalsize/1048576 | number:2}} MB
+                        	</div>
+	                        <div>
+	                            Progeso total:
+	                            <div class="progress" style="">
+	                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader2.progress + '%' }"></div>
+	                            </div>
+	                        </div>
+	                        <button type="button" class="btn btn-success btn-s" ng-click="uploader2.uploadAll()" ng-disabled="!uploader2.getNotUploadedItems().length">
+	                            <span class="glyphicon glyphicon-upload"></span> Subir todos
+	                        </button>
+	                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader2.cancelAll()" ng-disabled="!uploader2.isUploading">
+	                            <span class="glyphicon glyphicon-ban-circle"></span> Cancelar todos
+	                        </button>
+	                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader2.clearQueue()" ng-disabled="!uploader2.queue.length">
+	                            <span class="glyphicon glyphicon-trash"></span> Remover todos
+	                        </button>
+	                    </div>
+
+	                </div>
+				</div>
+		
+			</div>
+		</form>
+
+	</div>	
+			
+		</div>
+	</div>

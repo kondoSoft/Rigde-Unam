@@ -1,0 +1,144 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Proceso de Autoevaluación</h3>
+			<form  name="autoevaluacionform" >
+				<div class="row">
+					
+					<div class="form-group col-md-3" show-errors ng-init="periodo=1">
+					   	<label for="periodo">Periodo *</label>
+					   	<select id="periodo" name="periodo" ng-model="periodo" class="form-control">
+					   		<option value="1">2015-2016</option>
+					   		<option value="2">2016-2017</option>
+					   		<option value="3">2017-2018</option>
+					   		<option value="4">2018-2019</option>
+					   	</select>
+					</div>
+				</div>
+				
+				<div class="row">
+					
+						<div class="form-group col-md-3" show-errors>
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="for="finicio" ">Fecha de inicio *</label>
+						  	<input required class="form-control" id="finicio" name="finicio" placeholder="" ng-model="finicio" data-max-date="{{ffin}}"  data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker type="text"  >
+						</div>
+						<div class="form-group col-md-3" show-errors>
+						 	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="ffin">Fecha fin *</label>
+						  	<input required class="form-control"  id="ffin" name="ffin" placeholder="" ng-model="ffin"  data-min-date="{{finicio}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker type="text">
+						</div>
+					
+				</div>
+		
+				<div class="row">
+				
+					<div class="form-group col-md-6" show-errors>
+					   	<label for="periodicidad">Descripción *</label>
+					   	<textarea required name="textdesc" ng-model="textdesc" class="form-control" rows="3" id="textdesc"></textarea>
+					</div>
+					
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6"> 
+						<span class="text-warning">Ingresa las fechas para el proceso de Seguimiento</span>
+						<hr>
+					</div>
+
+				</div>
+				
+
+				<!--Dimensiones -->
+				<div class="row">
+					
+						<div class="form-group col-md-3" show-errors>
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="finicio">Fecha de inicio <a href data-animation="am-flip-x" bs-tooltip="{title:'Planta Física'}" data-title="Planta Física" data-trigger="hover" data-animation="am-flip-x">dimensión PF</a>*</label>
+						  	<input required class="form-control" id="finiciopf" name="finiciopf" placeholder="" ng-model="finiciopf" data-max-date="{{ffinpf}}"  data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker type="text"  >
+						</div>
+						<div class="form-group col-md-3" show-errors>
+						 	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="ffin">Fecha fin <a href data-animation="am-flip-x" bs-tooltip="{title:'Planta Física'}" data-title="Planta Física" data-trigger="hover" data-animation="am-flip-x">dimensión PF</a>*</label>
+						  	<input required class="form-control" id="ffinpf" name="ffinpf" placeholder="" ng-model="ffinpf"  data-min-date="{{finiciopf}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker type="text">
+						</div>
+					
+				</div>
+				<div class="row">
+					
+						<div class="form-group col-md-3" show-errors>
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha de inicio <a href data-animation="am-flip-x" bs-tooltip="{title:'Recursos Humanos'}" data-title="Recursos Humanos" data-trigger="hover" data-animation="am-flip-x">dimensión RH</a>*</label>
+						  	<input required class="form-control" id="finiciorh" name="finiciorh" placeholder="" ng-model="finiciorh" data-max-date="{{ffinrh}}"  data-date-format="dd-MM-yyyy"  data-placement="auto bottom-left" data-date-type="number" bs-datepicker type="text"  >
+						</div>
+						<div class="form-group col-md-3" show-errors>
+						 	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha fin <a href data-animation="am-flip-x" bs-tooltip="{title:'Recursos Humanos'}" data-title="Recursos Humanos" data-trigger="hover" data-animation="am-flip-x">dimensión RH</a>*</label>
+						  	<input required class="form-control"  id="ffinrh" name="ffinrh" placeholder="" ng-model="ffinrh" data-min-date="{{finiciorh}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker type="text">
+						</div>
+					
+					
+				</div>
+				<div class="row">
+					
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha de inicio <a href data-animation="am-flip-x" bs-tooltip="{title:'Recursos Materiales'}" data-title="Recursos Materiales" data-trigger="hover" data-animation="am-flip-x">dimensión RM</a>*</label>
+					   	<input required type="text" class="form-control" id="finiciorm" name="finiciorm" placeholder="" ng-model="finiciorm" data-max-date="{{ffinrm}}"  data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker >
+					   	
+					</div>
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha fin <a href data-animation="am-flip-x" bs-tooltip="{title:'Recursos Materiales'}" data-title="Recursos Materiales" data-trigger="hover" data-animation="am-flip-x">dimensión RM</a>*</label>
+					   	<input required type="text" class="form-control" id="ffinrm" name="ffinrm" placeholder="" ng-model="ffinrm" data-min-date="{{finiciorm}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker>
+					   	
+					</div>	
+				</div>
+				<div class="row">
+					
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha de inicio <a href data-animation="am-flip-x" bs-tooltip="{title:'Organización Académico-Administrativa'}" data-title="Organización Académico-Administrativa" data-trigger="hover" data-animation="am-flip-x">dimensión OAA</a>*</label>
+					   	<input required type="text" class="form-control" id="finiciooaa" name="finiciooaa" placeholder="" ng-model="finiciooaa" data-max-date="{{ffinoaa}}"  data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker >
+					   	
+					</div>
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha fin <a href data-animation="am-flip-x" bs-tooltip="{title:'Organización Académico-Administrativa'}" data-title="Organización Académico-Administrativa" data-trigger="hover" data-animation="am-flip-x">dimensión OAA</a>*</label>
+					   	<input required type="text" class="form-control" id="ffinoaa" name="ffinoaa" placeholder="" ng-model="ffinoaa" data-min-date="{{finiciooaa}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker>
+					   	
+					</div>	
+				</div>
+				<div class="row">
+					
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha de inicio <a href data-animation="am-flip-x" bs-tooltip="{title:'Servicios Académicos'}" data-title="Servicios Académicos" data-trigger="hover" data-animation="am-flip-x">dimensión SA</a>*</label>
+					   	<input required type="text" class="form-control" id="finiciosa" name="finiciosa" placeholder="" ng-model="finiciosa" data-max-date="{{ffinsa}}"  data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker>
+					   	
+					</div>
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha fin <a href data-animation="am-flip-x" bs-tooltip="{title:'Servicios Académicos'}" data-title="Servicios Académicos" data-trigger="hover" data-animation="am-flip-x">dimensión SA</a>*</label>
+					   	<input required type="text" class="form-control" id="ffinsa" name="ffinsa" placeholder="" ng-model="ffinsa" data-min-date="{{finiciosa}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker>
+					   	
+					</div>	
+				</div>
+				<div class="row">
+					
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha de inicio <a href data-animation="am-flip-x" bs-tooltip="{title:'Contexto Social'}" data-title="Contexto Social" data-trigger="hover" data-animation="am-flip-x">dimensión CS</a>*</label>
+					   	<input required type="text" class="form-control" id="finiciocs" name="finiciocs" placeholder="" ng-model="finiciocs" data-max-date="{{ffincs}}"  data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker>
+					   	
+					</div>
+					<div class="form-group col-md-3" show-errors>
+					   	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><label for="periodicidad">Fecha fin <a href data-animation="am-flip-x" bs-tooltip="{title:'Contexto Social'}" data-title="Contexto Social" data-trigger="hover" data-animation="am-flip-x">dimensión CS</a>*</label>
+					   	<input required type="text" class="form-control" id="ffincs" name="ffincs" placeholder="" ng-model="ffincs" data-min-date="{{finiciocs}}" data-date-format="dd-MM-yyyy" data-date-type="number" data-placement="auto bottom-left" bs-datepicker>
+					   	
+					</div>	
+				</div>
+
+				<!--<div class="row">
+					<div class="form-group col-md-6">
+					   	<span class="text-info">Asignar a grupo ISI</span>
+					</div>	
+					
+				</div>-->
+				
+				
+				<button type="submit" class="btn btn-primary"  ng-click="saveProceso()" >Iniciar proceso</button>
+
+			</form>
+
+		</div>
+	</div>
+	
+</div>
