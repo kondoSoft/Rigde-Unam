@@ -22,7 +22,7 @@
     		    <div class="item active item-video">
     		    	<div class=" embed-responsive  embed-responsive-4by3">
     		     		<video controls class="embed-responsive-item">
-    				 		<source src="video/FINAL.mp4" type="video/mp4">
+    				 		<source src="/mussi/public/video/FINAL.mp4" type="video/mp4">
     				 	 Lo sentimos tú navegador no soporta video en HTML5.
 
     					</video>
@@ -32,7 +32,7 @@
     		    <div class="item item-video">
     		      <div class=" embed-responsive  embed-responsive-4by3">
     			     	<video controls class="embed-responsive-item">
-    						<source src="video/FINAL_MUSSI.mp4" type="video/mp4">
+    						<source src="/mussi/public/video/FINAL_MUSSI.mp4" type="video/mp4">
     					  Lo sentimos tú navegador no soporta video en HTML5.
 
     					</video>
@@ -65,11 +65,11 @@
     					<p>Documentos de interés</p>
     					<p>
 
-    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/documentos/Fases_de_Autoevaluación_MUSSI.pdf" target="_blank"> Fases de Autoevaluación</a></strong>
+    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/mussi/public/documentos/Fases_de_Autoevaluación_MUSSI.pdf" target="_blank"> Fases de Autoevaluación</a></strong>
     					</p>
     					<p>
 
-    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/documentos/Introduccion.pdf" target="_blank"> Documento de introducción</a></strong>
+    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/mussi/public/documentos/Introduccion.pdf" target="_blank"> Documento de introducción</a></strong>
     					</p>
     				  </div>
     			</div>
