@@ -79,8 +79,8 @@
                     <nav class="navbar navbar-inverse paddtop navbar-fixed-top" ng-controller="MenuController">
                         <div class="container">
 
-                            <img class="img-responsive" src="/img/l_unam.png" style="float:left;max-width:70px;">
-                            <img src="/img/l_dgire.png" alt="DGIRE UNAM" class="img-responsive" style="float:left;max-width:70px;">
+                            <img class="img-responsive" src="/mussi/public/img/l_unam.png" style="float:left;max-width:70px;">
+                            <img src="/mussi/public/img/l_dgire.png" alt="DGIRE UNAM" class="img-responsive" style="float:left;max-width:70px;">
                             <p class="navbar-text font24 title hidden-xs hidden-sm">MODELO DE SUPERVISIÓN DEL SISTEMA INCORPORADO</p>
                             <p class="navbar-text font18 title hidden-md hidden-lg">MODELO DE SUPERVISIÓN DEL SISTEMA INCORPORADO</p>
                             <div class="navbar-header hidden-xs hidden-sm">
@@ -153,7 +153,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-2 col-xs-2 ">
-                                    <img src="/img/l_unam.png" class="img-responsive" style="float: left;">
+                                    <img src="/mussi/public/img/l_unam.png" class="img-responsive" style="float: left;">
                                 </div>
                                 <div class="col-md-8 col-xs-8">
                                     <div class="footer-wrapper center-block text-center font12">
@@ -164,7 +164,7 @@
                                   </div>
                               </div>
                               <div class="col-md-2 col-xs-2 ">
-                                  <img src="/img/l_siunam.png" class="img-responsive" style="float: right;">
+                                  <img src="/mussi/public/img/l_siunam.png" class="img-responsive" style="float: right;">
                               </div>
                           </div>
                       </div>
