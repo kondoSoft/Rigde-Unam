@@ -27,8 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    protected $redirectTo = '/usuarios/index';
     /**
      * Create a new controller instance.
      *
@@ -36,7 +35,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+
     }
 
     /**
@@ -48,10 +47,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required_if:tipoUsuario,1|string|email|max:255|unique:users|nullable',
             'password' => 'required|string|min:6|confirmed',
-            'nombre' => 'min:2',
+            'tipoUsuario' => 'required',
+            'plan' => 'required_if:tipoUsuario,2',
+            'nombre' => 'required_if:tipoUsuario,1',
+            'apellidoPaterno' => 'required_if:tipoUsuario,1',
+            'apellidoMaterno' => 'required_if:tipoUsuario,1'
         ]);
     }
 
@@ -63,18 +65,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if ($data['tipoUsuario'] == 1) {
+            $data['username'] = $data['email'];
+        } else if($data['tipoUsuario'] == 2) {
+            $isiPlan = explode('-', $data['plan']);
+            $data['username'] = $isiPlan[0].'-'.$isiPlan[1];
+        }
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'nombre' => 'nombrePrueba',
-            'apellidoPaterno' => 'paternoPrueba',
-            'apellidoMaterno' => 'maternoPrueba',
+            'nombre' => $data['nombre'],
+            'apellidoPaterno' => $data['apellidoPaterno'],
+            'apellidoMaterno' => $data['apellidoMaterno'],
             'estatus' => 1,
             'index' => 'indexPrueba',
             'token' => 'token d eprueba',
-            'tipoUsuario' => '1'
-
+            'tipoUsuario' => $data['tipoUsuario']
         ]);
     }
 }
