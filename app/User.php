@@ -116,8 +116,8 @@ class User extends Authenticatable
     }
 
     public function updateModel($data, $user) {
-        $data = $this->formatData($data);
         $tipoUsuario = $user->tipoUsuarioUsername($data);
+        $data = $this->formatData($data);
         $data['username'] = $tipoUsuario;
         return $user->fill($data)->save();
     }
