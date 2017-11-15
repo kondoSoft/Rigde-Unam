@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 $prefix = '';
-if (request()->server('SERVER_ADDR') != '132.247.147.90') {
+if (request()->server('SERVER_ADDR') == '132.247.147.90') {
     $prefix = '/mussi/public/index.php';
 }
 
