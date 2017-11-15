@@ -13,13 +13,6 @@
         <!-- Latest compiled and minified CSS -->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
 
-        {{-- Si estamos en el servidor de produccion, le agregamos a la url la siguiente ruta--}}
-        @php($prefix = '')
-        @if (request()->server('SERVER_ADDR') == '132.247.147.90')
-            @php($prefix = '/mussi/public')
-        @endif
-
-
         <link href="{!!$prefix!!}/css/bootstrap.min.css" rel="stylesheet">
         <!-- Optional theme -->
         <link href="{!!$prefix!!}/css/bootstrap-theme.min.css" rel="stylesheet">

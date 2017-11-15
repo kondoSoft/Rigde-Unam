@@ -22,7 +22,7 @@
     		    <div class="item active item-video">
     		    	<div class=" embed-responsive  embed-responsive-4by3">
     		     		<video controls class="embed-responsive-item">
-    				 		<source src="{!!$prefix!!}video/FINAL.mp4" type="video/mp4">
+    				 		<source src="{!!$prefix!!}/video/FINAL.mp4" type="video/mp4">
     				 	 Lo sentimos tú navegador no soporta video en HTML5.
 
     					</video>
@@ -32,7 +32,7 @@
     		    <div class="item item-video">
     		      <div class=" embed-responsive  embed-responsive-4by3">
     			     	<video controls class="embed-responsive-item">
-    						<source src="{!!$prefix!!}video/FINAL_MUSSI.mp4" type="video/mp4">
+    						<source src="{!!$prefix!!}/video/FINAL_MUSSI.mp4" type="video/mp4">
     					  Lo sentimos tú navegador no soporta video en HTML5.
 
     					</video>
