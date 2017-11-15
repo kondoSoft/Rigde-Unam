@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\UserRequest;
+use App\User;
 class UsuariosController extends Controller
 {
     /**
@@ -15,7 +18,15 @@ class UsuariosController extends Controller
      public function index() {
          return view('admin.usuario.index');
      }
-
+     public function getList()
+     {
+         Session::put('userSearch', Input::has('ok') ? Input::get('search') : (Session::has('userSearch') ? Session::get('userSearch') : ''));
+         Session::put('userField', Input::has('field') ? Input::get('field') : (Session::has('userField') ? Session::get('userField') : 'username'));
+         Session::put('userSort', Input::has('sort') ? Input::get('sort') : (Session::has('userSort') ? Session::get('userSort') : 'asc'));
+         $users = User::where('username', 'like', '%' . Session::get('userSearch') . '%')
+            ->orderBy(Session::get('userField'), Session::get('userSort'))->paginate(8);
+         return view('admin.usuario._list', compact('users'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +45,11 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        if ($user->createModel($request)) {
+            return redirect()->route('admin.usuarios.index')->with('success', 'Usuario registrado');
+        }
+
     }
 
     /**
@@ -54,9 +69,10 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $user;
+        return view('admin.usuario.edit', compact('user'));
     }
 
     /**
@@ -66,9 +82,11 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        if($user->updateModel($request, $user) == true) {
+            return redirect()->route('admin.usuarios.index')->with('success', 'Usuario Acualizado');
+        }
     }
 
     /**

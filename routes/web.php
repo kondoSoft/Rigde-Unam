@@ -15,34 +15,45 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+$prefix = '';
+if (request()->server('SERVER_ADDR') != '132.247.147.90') {
+    $prefix = '/mussi/public/index.php';
+}
 
-//Vistas
-Route::group(['prefix' => 'catalogos'],function() {
+Route::group(['prefix' => $prefix], function() {
+    //Vistas
+    Route::group(['prefix' => 'catalogos'],function() {
 
-  //Situacion actual de operacion -> sao
-  Route::get('sao', 'Catalogos\SaoController@index')->name('catalogos.sao.index');
-  Route::get('dirTecnica', 'Catalogos\dirTecnicaController@index')->name('catalogos.dirTecnica.index');
-  Route::get('rcae', 'Catalogos\rcaeController@index')->name('catalogos.rcae.index');
-  Route::get('horarioEscolar', 'Catalogos\horarioEscolarController@index')->name('catalogos.horarioEscolar.index');
+      //Situacion actual de operacion -> sao
+      Route::get('sao', 'Catalogos\SaoController@index')->name('catalogos.sao.index');
+      Route::get('dirTecnica', 'Catalogos\dirTecnicaController@index')->name('catalogos.dirTecnica.index');
+      Route::get('rcae', 'Catalogos\rcaeController@index')->name('catalogos.rcae.index');
+      Route::get('horarioEscolar', 'Catalogos\horarioEscolarController@index')->name('catalogos.horarioEscolar.index');
+    });
+
+    Route::group(['prefix' => 'planesEstudio'], function() {
+         Route::get('bdu', 'planesEstudio\bduController@index')->name('planesEstudio.bdu.index');
+         Route::get('cch', 'planesEstudio\cchController@index')->name('planesEstudio.cch.index');
+         Route::get('enp', 'planesEstudio\enpController@index')->name('planesEstudio.enp.index');
+    });
+
+    Route::group(['prefix' => 'conteo'], function() {
+         Route::get('enp', 'conteo\enpController@index')->name('conteo.enp.index');
+         Route::get('cch', 'conteo\cchController@index')->name('conteo.cch.index');
+         Route::get('materiales', 'conteoMateriales\conteoMaterialesController@index')->name('conteo.materiales.index');
+    });
+
+    Route::group(['prefix' => ''], function() {
+        Route::get('usuarios/index', 'Admin\UsuariosController@index')->name('admin.usuarios.index');
+        Route::get('usuarios/_list', 'Admin\UsuariosController@getList')->name('admin.usuarios.list');
+        Route::get('usuarios/create', 'Admin\UsuariosController@create')->name('admin.usuarios.create');
+        Route::post('usuarios/create', 'Admin\UsuariosController@store');
+        Route::get('usuarios/{user}/edit', 'Admin\UsuariosController@edit')->name('admin.usuarios.edit');
+        Route::put('usuarios/{user}', 'Admin\UsuariosController@update')->name('admin.usuarios.update');
+    });
 });
 
-Route::group(['prefix' => 'planesEstudio'], function() {
-     Route::get('bdu', 'planesEstudio\bduController@index')->name('planesEstudio.bdu.index');
-     Route::get('cch', 'planesEstudio\cchController@index')->name('planesEstudio.cch.index');
-     Route::get('enp', 'planesEstudio\enpController@index')->name('planesEstudio.enp.index');
-});
 
-Route::group(['prefix' => 'conteo'], function() {
-     Route::get('enp', 'conteo\enpController@index')->name('conteo.enp.index');
-     Route::get('cch', 'conteo\cchController@index')->name('conteo.cch.index');
-     Route::get('materiales', 'conteoMateriales\conteoMaterialesController@index')->name('conteo.materiales.index');
-});
-
-Route::group(['prefix' => ''], function() {
-    Route::get('usuarios/index', 'Admin\UsuariosController@index')->name('admin.usuarios.index');
-    Route::get('usuarios/create', 'Admin\UsuariosController@create')->name('admin.usuarios.create');
-    Route::post('usuarios/create', 'Auth\RegisterController@register');
-});
 
 // Authentication Routes...
 Route::get('login', [
