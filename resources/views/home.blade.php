@@ -4,8 +4,13 @@
 
     	<div class="row" ng-controller="MenuController">
     		<div class="col-md-12">
-    			<h3  ng-if="hasAccess('accesoisi')">Bienvenido  <a href="/#/perfil/me">$username</a> <small>$claveplan</small></h3>
-    			<h3  ng-if="hasAccess('accesomussi') || hasAccess('superadmin')">Bienvenido $username</h3>
+                @if ( Auth::user()->tipoUsuario == 2 )
+                    <h3  ng-if="hasAccess('accesoisi')">Bienvenido  <a href="/#/perfil/me">{{ Auth::user()->username }}</a> <small>{{ Auth::user()->username }}</small></h3>
+                @elseif ( Auth::user()->tipoUsuario == 1 )
+                    <h3  ng-if="hasAccess('accesomussi') || hasAccess('superadmin')">Bienvenido {{ Auth::user()->username }}</h3>
+                @endif
+
+
     		</div>
     	</div>
     	<div class="row">
