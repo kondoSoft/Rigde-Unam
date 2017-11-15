@@ -4,3 +4,16 @@
 input {
      text-align: right;
 }
+
+.loading {
+    background: lightgoldenrodyellow url('{{asset('images/processing.gif')}}') no-repeat center 65%;
+    height: 80px;
+    width: 100px;
+    position: fixed;
+    border-radius: 4px;
+    left: 50%;
+    top: 50%;
+    margin: -40px 0 0 -50px;
+    z-index: 2000;
+    display: none;
+}

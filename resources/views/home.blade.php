@@ -22,7 +22,7 @@
     		    <div class="item active item-video">
     		    	<div class=" embed-responsive  embed-responsive-4by3">
     		     		<video controls class="embed-responsive-item">
-    				 		<source src="/mussi/public/video/FINAL.mp4" type="video/mp4">
+    				 		<source src="video/FINAL.mp4" type="video/mp4">
     				 	 Lo sentimos tú navegador no soporta video en HTML5.
 
     					</video>
@@ -32,7 +32,7 @@
     		    <div class="item item-video">
     		      <div class=" embed-responsive  embed-responsive-4by3">
     			     	<video controls class="embed-responsive-item">
-    						<source src="/mussi/public/video/FINAL_MUSSI.mp4" type="video/mp4">
+    						<source src="video/FINAL_MUSSI.mp4" type="video/mp4">
     					  Lo sentimos tú navegador no soporta video en HTML5.
 
     					</video>
@@ -65,11 +65,11 @@
     					<p>Documentos de interés</p>
     					<p>
 
-    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/mussi/public/documentos/Fases_de_Autoevaluación_MUSSI.pdf" target="_blank"> Fases de Autoevaluación</a></strong>
+    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/documentos/Fases_de_Autoevaluación_MUSSI.pdf" target="_blank"> Fases de Autoevaluación</a></strong>
     					</p>
     					<p>
 
-    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/mussi/public/documentos/Introduccion.pdf" target="_blank"> Documento de introducción</a></strong>
+    			  <strong><strong class="glyphicon glyphicon-download-alt"></strong><a href="/documentos/Introduccion.pdf" target="_blank"> Documento de introducción</a></strong>
     					</p>
     				  </div>
     			</div>
@@ -90,17 +90,20 @@
     			  	<h4 class="item">Procesos</h4>
 
     			  	<ul class="list-group">
-    					  <li class="list-group-item">
-    					  	<a href="#/autoevaluacion/workflow/admin/$cliid" class="font16"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autoevaluación</a>
-    					  </li>
-    					  <li class="list-group-item">
-    					  	<a href="#/seguimiento" class="font16"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Seguimiento</a>
-    					  </li>
+                        <li class="list-group-item">
+                        	<a href="#/autoevaluacion/workflow/admin/$cliid" class="font16"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autoevaluación</a>
+                        </li>
+                        <li class="list-group-item">
+                        	<a href="#/seguimiento" class="font16"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Seguimiento</a>
+                        </li>
     				</ul>
     			  </div>
     			  <div class="col-md-4" ng-if="hasAccess('accesoisi')">
     			  	<h4 class="item">Procesos</h4>
     			  	<ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="{!!route('catalogos.dirTecnica.index')!!}" class="font16"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Información inicial</a>
+                        </li>
     				  <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autoevaluación</a></li>
     				   <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid/seguimiento"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Seguimiento</a></li>
     				</ul>
@@ -115,7 +118,7 @@
     			  	<h4 class="item">Administración</h4>
     			  	<ul class="list-group">
     				  <li class="list-group-item">
-    				  	<a href="/usuarios/index" class="font16"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios</a>
+    				  	<a href="{!!route('admin.usuarios.index')!!}" class="font16"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios</a>
     				  	<br><span class="text-muted"> Administración de usuarios</span>
     				  </li>
     				  <li class="list-group-item">

@@ -12,26 +12,34 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
         <!-- Latest compiled and minified CSS -->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
-        <link href="/mussi/public/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Optional theme -->
-        <link href="/mussi/public/css/bootstrap-theme.min.css" rel="stylesheet">
 
-        <link href="/mussi/public/css/nprogress.css" rel="stylesheet" />
-        <link href="/mussi/public/css/animate.css" rel="stylesheet" />
-        <link href="/mussi/public/css/please-wait.css" rel="stylesheet">
-        <link href="/mussi/public/css/autocomplete.css" rel="stylesheet" />
+        {{-- Si estamos en el servidor de produccion, le agregamos a la url la siguiente ruta--}}
+        @php($prefix = '')
+        @if (request()->server('SERVER_ADDR') == '132.247.147.90')
+            @php($prefix = '/mussi/public')
+        @endif
+
+
+        <link href="{!!$prefix!!}/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Optional theme -->
+        <link href="{!!$prefix!!}/css/bootstrap-theme.min.css" rel="stylesheet">
+
+        <link href="{!!$prefix!!}/css/nprogress.css" rel="stylesheet" />
+        <link href="{!!$prefix!!}/css/animate.css" rel="stylesheet" />
+        <link href="{!!$prefix!!}/css/please-wait.css" rel="stylesheet">
+        <link href="{!!$prefix!!}/css/autocomplete.css" rel="stylesheet" />
         <!-- El css de la app -->
-        <link href="/mussi/public/css/app2.css" rel="stylesheet">
+        <link href="{!!$prefix!!}/css/app2.css" rel="stylesheet">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="/mussi/public/js/core/jquery.min.js"></script>
-        <script src="/mussi/public/js/core/angular.min.js"></script>
-        <script src="/mussi/public/js/core/angular-locale_es-es.js"></script>
-        <script src="/mussi/public/js/core/angular-cookies.min.js"></script>
+        <script src="{!!$prefix!!}/js/core/jquery.min.js"></script>
+        <script src="{!!$prefix!!}/js/core/angular.min.js"></script>
+        <script src="{!!$prefix!!}/js/core/angular-locale_es-es.js"></script>
+        <script src="{!!$prefix!!}/js/core/angular-cookies.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-        <script src="/mussi/public/js/core/bootstrap.min.js"></script>
-        <script src="/mussi/public/js/core/angular-strap.js" data-semver="v2.3.2"></script>
-        <script src="/mussi/public/js/core/angular-strap.tpl.js" data-semver="v2.3.2"></script>
+        <script src="{!!$prefix!!}/js/core/bootstrap.min.js"></script>
+        <script src="{!!$prefix!!}/js/core/angular-strap.js" data-semver="v2.3.2"></script>
+        <script src="{!!$prefix!!}/js/core/angular-strap.tpl.js" data-semver="v2.3.2"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -39,35 +47,35 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/mussi/public/js/extras/satellizer.js"></script>
-        <script src="/mussi/public/js/extras/angular-animate.min.js"></script>
-        <script src="/mussi/public/js/extras/angular-resource.min.js"></script>
-        <script src="/mussi/public/js/extras/angular-route.min.js"></script>
-        <script src="/mussi/public/js/extras/angular-sanitize.min.js"></script>
-        <script src="/mussi/public/js/extras/angular-scroll.min.js"></script>
-        <script src="/mussi/public/js/extras/loadingbar.js"></script>
-        <script src="/mussi/public/js/extras/angular-paginate.js"></script>
-        <script src="/mussi/public/js/extras/angular-validator.min.js"></script>
+        <script src="{!!$prefix!!}/js/extras/satellizer.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-animate.min.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-resource.min.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-route.min.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-sanitize.min.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-scroll.min.js"></script>
+        <script src="{!!$prefix!!}/js/extras/loadingbar.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-paginate.js"></script>
+        <script src="{!!$prefix!!}/js/extras/angular-validator.min.js"></script>
 
-        <script src="/mussi/public/js/extras/nprogress.js"></script>
-        <script src="/mussi/public/js/extras/noty.js"></script>
+        <script src="{!!$prefix!!}/js/extras/nprogress.js"></script>
+        <script src="{!!$prefix!!}/js/extras/noty.js"></script>
 
-        <script src="/mussi/public/js/extras/autocomplete.js"></script>
+        <script src="{!!$prefix!!}/js/extras/autocomplete.js"></script>
 
-        <script type="text/javascript" src="/mussi/public/js/extras/please-wait.js"></script>
-        <script type="text/javascript" src="/mussi/public/js/extras/angular-file-upload.min.js"></script>
+        <script type="text/javascript" src="{!!$prefix!!}/js/extras/please-wait.js"></script>
+        <script type="text/javascript" src="{!!$prefix!!}/js/extras/angular-file-upload.min.js"></script>
 
         <script type="text/javascript">
             var _tk = '<?php echo csrf_token(); ?>';
         </script>
-        <script src="/mussi/public/js/app.js"></script>
-        <script src="/mussi/public/js/app/services.js"></script>
-        <script src="/mussi/public/js/app/SecController.js"></script>
-        <script src="/mussi/public/js/app/controllers.js"></script>
-        <script src="/mussi/public/js/app/userscontroller.js"></script>
-        <script src="/mussi/public/js/app/accesoscontroller.js"></script>
-        <script src="/mussi/public/js/app/seguimientocontroller.js"></script>
-        <script src="/mussi/public/js/app/directives.js"></script>
+        <script src="{!!$prefix!!}/js/app.js"></script>
+        <script src="{!!$prefix!!}/js/app/services.js"></script>
+        <script src="{!!$prefix!!}/js/app/SecController.js"></script>
+        <script src="{!!$prefix!!}/js/app/controllers.js"></script>
+        <script src="{!!$prefix!!}/js/app/userscontroller.js"></script>
+        <script src="{!!$prefix!!}/js/app/accesoscontroller.js"></script>
+        <script src="{!!$prefix!!}/js/app/seguimientocontroller.js"></script>
+        <script src="{!!$prefix!!}/js/app/directives.js"></script>
     </head>
     <body resizable>
         <div loading-indicator></div>
@@ -79,8 +87,8 @@
                     <nav class="navbar navbar-inverse paddtop navbar-fixed-top" ng-controller="MenuController">
                         <div class="container">
 
-                            <img class="img-responsive" src="/mussi/public/img/l_unam.png" style="float:left;max-width:70px;">
-                            <img src="/mussi/public/img/l_dgire.png" alt="DGIRE UNAM" class="img-responsive" style="float:left;max-width:70px;">
+                            <img class="img-responsive" src="{!!$prefix!!}/img/l_unam.png" style="float:left;max-width:70px;">
+                            <img src="{!!$prefix!!}/img/l_dgire.png" alt="DGIRE UNAM" class="img-responsive" style="float:left;max-width:70px;">
                             <p class="navbar-text font24 title hidden-xs hidden-sm">MODELO DE SUPERVISIÓN DEL SISTEMA INCORPORADO</p>
                             <p class="navbar-text font18 title hidden-md hidden-lg">MODELO DE SUPERVISIÓN DEL SISTEMA INCORPORADO</p>
                             <div class="navbar-header hidden-xs hidden-sm">
@@ -134,6 +142,13 @@
                 <section class="top110">
                     <div class="section container">
                         <div class="wrapper-container" style="position:relative;">
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    <ul>
+                                        <li>{{ session('success') }}</li>
+                                    </ul>
+                                </div>
+                            @endif
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -153,7 +168,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-2 col-xs-2 ">
-                                    <img src="/mussi/public/img/l_unam.png" class="img-responsive" style="float: left;">
+                                    <img src="{!!$prefix!!}/img/l_unam.png" class="img-responsive" style="float: left;">
                                 </div>
                                 <div class="col-md-8 col-xs-8">
                                     <div class="footer-wrapper center-block text-center font12">
@@ -164,14 +179,14 @@
                                   </div>
                               </div>
                               <div class="col-md-2 col-xs-2 ">
-                                  <img src="/mussi/public/img/l_siunam.png" class="img-responsive" style="float: right;">
+                                  <img src="{!!$prefix!!}/img/l_siunam.png" class="img-responsive" style="float: right;">
                               </div>
                           </div>
                       </div>
                   </div>
               </footer>
           <!-- Scripts -->
-          <script src="{{ asset('/mussi/publicjs/app.js') }}"></script>
+          <script src="{{ asset('{!!$prefix!!}js/app.js') }}"></script>
           @yield('javascript')
       </body>
 </html>
