@@ -3,7 +3,7 @@
 @section('content')
     <div class="row top50">
         <div class="col-md-6 col-md-offset-3">
-            <img src="img/mussi_logo.png"  class="img-responsive">
+            <img src="{{$prefix}}/img/mussi_logo.png"  class="img-responsive">
         </div>
     </div>
     <div class="row top30">
