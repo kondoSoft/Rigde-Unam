@@ -11,8 +11,6 @@
 
         <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
         <!-- Latest compiled and minified CSS -->
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
-
         <link href="{!!$prefix!!}/css/bootstrap.min.css" rel="stylesheet">
         <!-- Optional theme -->
         <link href="{!!$prefix!!}/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -25,12 +23,13 @@
         <link href="{!!$prefix!!}/css/app2.css" rel="stylesheet">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{!!$prefix!!}/js/core/bootstrap.min.js"></script>
         <script src="{!!$prefix!!}/js/core/jquery.min.js"></script>
         <script src="{!!$prefix!!}/js/core/angular.min.js"></script>
         <script src="{!!$prefix!!}/js/core/angular-locale_es-es.js"></script>
         <script src="{!!$prefix!!}/js/core/angular-cookies.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-        <script src="{!!$prefix!!}/js/core/bootstrap.min.js"></script>
+
         <script src="{!!$prefix!!}/js/core/angular-strap.js" data-semver="v2.3.2"></script>
         <script src="{!!$prefix!!}/js/core/angular-strap.tpl.js" data-semver="v2.3.2"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -122,12 +121,23 @@
                             <div id="navbar2" class="navbar-collapse collapse" >
                                 <ul class="nav navbar-nav" >
                                     @if (!Auth::guest())
-                                        <li ng-if="isAuthenticated()"><a href="#/panelcontrol" class="menu-item">Inicio</a></li>
+                                        <li ng-if="isAuthenticated()"><a href="{{route('home')}}" class="menu-item">Inicio</a></li>
                                         <li ng-if="isAuthenticated() && hasAccess('accesoisi')"><a href="/#/perfil/me" class="menu-item">Mi perfil</a></li>
                                         <li ng-if="isAuthenticated() && hasAccess('accesoisi')"><a href="/#/faqs" class="menu-item">FAQs</a></li>
                                         <li ng-if="isAuthenticated()" class="hidden-md hidden-lg"><a href="/#/logout" class="menu-item">Salir</a></li>
                                     @endif
                                 </ul>
+                                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                                     <!-- Left Side Of Navbar -->
+                                     <ul class="nav navbar-nav">
+                                         &nbsp;
+                                     </ul>
+
+                                     <!-- Right Side Of Navbar -->
+                                     <ul class="nav navbar-nav navbar-right">
+                                          @yield('menu')
+                                     </ul>
+                                </div>
                             </div><!--/.nav-collapse -->
                         </div>
                     </nav>
@@ -179,7 +189,6 @@
                   </div>
               </footer>
           <!-- Scripts -->
-          <script src="{{ asset('{!!$prefix!!}js/app.js') }}"></script>
           @yield('javascript')
       </body>
 </html>

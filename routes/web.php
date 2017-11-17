@@ -20,7 +20,10 @@ if (request()->server('SERVER_ADDR') == '132.247.147.90') {
     $prefix = '/mussi/public/index.php';
 }
 
-Route::group(['prefix' => $prefix], function() {
+Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
     //Vistas
     Route::group(['prefix' => 'catalogos'],function() {
 
@@ -50,7 +53,14 @@ Route::group(['prefix' => $prefix], function() {
         Route::post('usuarios/create', 'Admin\UsuariosController@store');
         Route::get('usuarios/{user}/edit', 'Admin\UsuariosController@edit')->name('admin.usuarios.edit');
         Route::put('usuarios/{user}', 'Admin\UsuariosController@update')->name('admin.usuarios.update');
+        Route::delete('usuarios/{user}', 'Admin\UsuariosController@destroy')->name('admin.usuarios.delete');
     });
+
+    // Authentication Routes...
+    Route::post('logout', [
+      'as' => 'logout',
+      'uses' => 'Auth\LoginController@logout'
+    ]);
 });
 
 
@@ -64,11 +74,6 @@ Route::post('login', [
   'as' => '',
   'uses' => 'Auth\LoginController@login'
 ]);
-Route::post('logout', [
-  'as' => 'logout',
-  'uses' => 'Auth\LoginController@logout'
-]);
-
 // Password Reset Routes...
 Route::post('password/email', [
   'as' => 'password.email',
@@ -96,5 +101,3 @@ Route::post('register', [
   'as' => '',
   'uses' => 'Auth\RegisterController@register'
 ]);
-
-Route::get('/home', 'HomeController@index')->name('home');

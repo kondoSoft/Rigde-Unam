@@ -1,4 +1,8 @@
-@extends('layouts.temporal')
+@extends('layouts.app')
+
+@section('menu')
+    @include('menu.menu')
+@endsection
 
 @section('content')
      <div class="panel panel-default">

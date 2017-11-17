@@ -6,11 +6,20 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Collective\Html\Eloquent\FormAccessible;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use FormAccessible;
+    use SoftDeletes;
+
+    /**
+    * The attributes that should be mutated to dates.
+    *
+    * @var array
+    */
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that are mass assignable.
      *
@@ -52,6 +61,19 @@ class User extends Authenticatable
         'tipoUsuario'
     ];
 
+    private static $_admin = 'A';
+    private static $_mussi = '1';
+    private static $_isi = '2';
+
+    public function isAdmin() {
+        return $this->tipoUsuario == self::$_admin;
+    }
+    public function isMussi() {
+        return $this->tipoUsuario == self::$_mussi;
+    }
+    public function isIsi() {
+        return $this->tipoUsuario == self::$_isi;
+    }
 
     /**
      * Dependiendo del tipo de usuario, se determinara si es mussi o isi

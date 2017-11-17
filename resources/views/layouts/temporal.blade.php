@@ -58,7 +58,7 @@
 
                          <!-- Right Side Of Navbar -->
                          <ul class="nav navbar-nav navbar-right">
-                              @include('menu.conteoMateriales')
+                              @include('menu.menu')
                          </ul>
                     </div>
                </div>

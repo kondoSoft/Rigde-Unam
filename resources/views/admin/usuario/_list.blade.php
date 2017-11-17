@@ -33,12 +33,22 @@
             <td style="text-align: center">
                 <div class="btn-group" role="group" ng-hide=" hasAccess('superadmin')">
                     <a class="btn btn-primary"  title="Editar este usuario" href="{!!route('admin.usuarios.edit', ['id' => $user->id])!!}"><i class="glyphicon glyphicon-pencil"></i></a>
-
-                    <a ng-show="usuario.clitipousuario != '2' && usuario.clitipousuario != 'A'" class="btn btn-danger"  title="Eliminar este usuario" ng-click="deleteuserWait(usuario)"><i class="glyphicon glyphicon-trash"></i></a>
-
+                    @if($user->tipoUsuario != 2 && $user->tipoUsuario != 'A')
+                        {{Form::open(['method' => 'DELETE', 'url' => route('admin.usuarios.delete', ['id' => $user->id]), 'class' => 'formDelete'])}}
+                            {{Form::button('<i class="glyphicon glyphicon-trash"></i>',
+                                [
+                                    'class' => 'btn btn-danger deleteJS',
+                                    'data-url' => route('admin.usuarios.delete', ['id' => $user->id]),
+                                    'data-modalTargetId' => 'modalconfirmdelete',
+                                    'data-modalDisplayText' => '¿Desea eliminar el usuario ' . $user->username . '?'
+                                ])
+                            }}
+                        {{Form::close()}}
+                    @endif
                     <a class="btn btn-warning"  title="Ver/Asignar accesos de este usuario" ng-click="asignarAccesos(usuario)"><i class="glyphicon glyphicon-check"></i></a>
-
-                    <a ng-show="usuario.clitipousuario == '1'" class="btn btn-info"  title="Ver/Asignar grupo a este usuario" ng-click="asignarGrupo(usuario)"><i class="glyphicon glyphicon-check"></i></a>
+                    @if($user->tipoUsuario == 1)
+                        <a ng-show="usuario.clitipousuario == '1'" class="btn btn-info"  title="Ver/Asignar grupo a este usuario" ng-click="asignarGrupo(usuario)"><i class="glyphicon glyphicon-check"></i></a>
+                    @endif
                 </div>
             </td>
         </tr>
@@ -48,12 +58,6 @@
 <div class="pull-right">{!! str_replace('/?','?',$users->render()) !!}</div>
 <div class="row">
     <i class="col-sm-12">
-        Total: {{$users->total()}} records
+        Total: {{$users->total()}} registros.
     </i>
 </div>
-<script>
-    $('.pagination a').on('click', function (event) {
-        event.preventDefault();
-        ajaxLoad($(this).attr('href'));
-    });
-</script>
