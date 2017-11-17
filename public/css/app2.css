@@ -15,7 +15,9 @@
   }
 }
 
-
+.formDelete {
+    display: inline;
+}
 
 .top5 { margin-top:5px; }
 .top7 { margin-top:7px; }
