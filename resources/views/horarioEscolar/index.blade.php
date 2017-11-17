@@ -1,4 +1,8 @@
-@extends('layouts.temporal')
+@extends('layouts.app')
+
+@section('menu')
+    @include('menu.menu')
+@endsection
 
 @section('style')
      <link type="text/css" href="css/bootstrap-timepicker.css" />

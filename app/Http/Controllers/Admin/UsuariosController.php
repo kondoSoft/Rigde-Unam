@@ -10,6 +10,10 @@ use App\Http\Requests\UserRequest;
 use App\User;
 class UsuariosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -95,8 +99,9 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return back()->with('success', 'Usuario eliminado ' . $user->username);
     }
 }

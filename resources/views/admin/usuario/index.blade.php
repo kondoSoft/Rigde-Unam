@@ -51,15 +51,15 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2>Lista de suscriptores</h2>
+				<h2>Eliminar</h2>
 			</div>
 		    <div class="modal-body">
-
+                ¿Desea realmente eliminarlo?
 		    </div>
 
 		  <div class="modal-footer">
-		    <a class="btn btn-success" ng-click="deleteuser()">Aceptar</a>
-		    <a class="btn btn-danger" ng-click="cancelDelete()">Cancelar</a>
+		    <a class="btn btn-success" ng-click="deleteuser()" id="delete" data-dismiss="modal">Aceptar</a>
+		    <a class="btn btn-danger" ng-click="cancelDelete()" data-dismiss="modal">Cancelar</a>
 		  </div>
 		</div>
 	</div>
@@ -133,8 +133,16 @@
                 }
             });
         }
+
+
         $(document).ready(function () {
             ajaxLoad('{!!route('admin.usuarios.list')!!}');
         });
+        $(document).on('click', '.pagination a', function (event) {
+            event.preventDefault();
+            ajaxLoad($(this).attr('href'));
+        });
     </script>
+    <script type="text/javascript" src="{{$prefix}}/js/app/delete.js"></script>
+
 @endsection
