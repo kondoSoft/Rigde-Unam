@@ -65,6 +65,9 @@ class User extends Authenticatable
     private static $_mussi = '1';
     private static $_isi = '2';
 
+    public function accesos() {
+        return $this->belongsToMany(Acceso::class, with(new User_Acceso)->getTable())->withTimestamps();
+    }
     public function isAdmin() {
         return $this->tipoUsuario == self::$_admin;
     }
