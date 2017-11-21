@@ -1,11 +1,8 @@
 $(document).on('click', '.ajaxForm', function(event) {
     var ajaxForm = $(this).data('form');
-    console.log(ajaxForm);
-    var url = $(ajaxForm).attr('action');
-    console.log(url);
-    method = form.method;
     var form = document.querySelector(ajaxForm);
-    console.log(form);
+    var url = $(ajaxForm).attr('action');
+    var method = form.method;
     var formData = new FormData(form);
     $('.msg').html('<div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>');
     $.ajax({

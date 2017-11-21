@@ -19,13 +19,18 @@ class AccesosController extends Controller
     public function putListForm(User $user, Request $request) {
         $accesos = $request->input('accesos');
         $userAcceso = [];
-        foreach ($accesos as $acceso) {
-            $userAcceso [$acceso] = [
-                'created_by' => '1',
-                'updated_by' => '1'
-            ];
+        if(count($accesos) > 0)
+        {
+            foreach ($accesos as $acceso) {
+                $userAcceso [$acceso] = [
+                    'created_by' => '1',
+                    'updated_by' => '1'
+                ];
+            }
+            $user->accesos()->sync($userAcceso);
+        } else {
+            $user->accesos()->detach();
         }
-        $user->accesos()->sync($userAcceso);
         return 'Guardado con exito';
     }
 }
