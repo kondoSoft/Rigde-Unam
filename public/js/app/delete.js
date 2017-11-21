@@ -6,5 +6,5 @@ $(document).on('click', '.deleteJS', function(event) {
     $("#" + modalId).find('.modal-body').html('<p>' + msg +'</p>');
     $("#" + modalId).modal().on('click', '#delete', function(event) {
         form.trigger('submit');
-    });;
+    });
 });

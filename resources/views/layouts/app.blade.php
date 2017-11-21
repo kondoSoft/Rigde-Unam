@@ -21,6 +21,7 @@
         <link href="{!!$prefix!!}/css/autocomplete.css" rel="stylesheet" />
         <!-- El css de la app -->
         <link href="{!!$prefix!!}/css/app2.css" rel="stylesheet">
+        <link href="{!!$prefix!!}/css/loading.css" rel="stylesheet">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="{!!$prefix!!}/js/core/bootstrap.min.js"></script>
