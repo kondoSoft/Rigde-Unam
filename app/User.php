@@ -68,6 +68,9 @@ class User extends Authenticatable
     public function accesos() {
         return $this->belongsToMany(Acceso::class, with(new User_Acceso)->getTable())->withTimestamps();
     }
+    public function grupos() {
+        return $this->belongsToMany(Grupo::class, with(new User_Grupo)->getTable())->withTimestamps();
+    }
     public function isAdmin() {
         return $this->tipoUsuario == self::$_admin;
     }
