@@ -19,7 +19,6 @@ $prefix = '';
 if (request()->server('SERVER_ADDR') == '132.247.147.90') {
     $prefix = '/mussi/public/index.php';
 }
-
 Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
 
     Route::get('/home', 'HomeController@index')->name('home');
@@ -54,6 +53,9 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
         Route::get('usuarios/{user}/edit', 'Admin\UsuariosController@edit')->name('admin.usuarios.edit');
         Route::put('usuarios/{user}', 'Admin\UsuariosController@update')->name('admin.usuarios.update');
         Route::delete('usuarios/{user}', 'Admin\UsuariosController@destroy')->name('admin.usuarios.delete');
+
+        Route::get('accesos/listForm/{user}', 'Admin\AccesosController@showListForm')->name('admin.accesos.showListForm');
+        Route::put('accesos/listForm/{user}', 'Admin\AccesosController@putListForm')->name('admin.accesos.putListForm');
     });
 
     // Authentication Routes...
