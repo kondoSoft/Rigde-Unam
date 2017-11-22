@@ -66,24 +66,23 @@
 </div>
 
 <div id="modalaccessuser" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-		  	<div class="modal-header">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
 		  		<h3>Accesos del usuario: </h3>
 		  		<div>Para asignar o quitar permisos al usuario selecciona la casilla del permiso</div>
 		  	</div>
 		    <div class="modal-body">
-	    	<ul class="list-group">
-		    	<li class="list-group-item" ng-repeat="acceso in allacess">
-
-					<input type="checkbox" autocomplete="off" class="accessfield" id="a" ng-checked="hasPermiso(acceso.accid)" ng-click="updateAccess($event,acceso.accid)">
-					<span></span>
-
-		    	</li>
-	    	</ul>
-	    </div>
-	  </div>
-	</div>
+                <div class="col-md-12 msg">
+                    <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-success ajaxForm" data-form=".putListForm" >Aceptar</a>
+                <a class="btn btn-danger cancelar" ng-click="cancelDelete()" data-dismiss="modal">Cerrar</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="modalgroupuser" class="modal fade" role="dialog">
@@ -94,21 +93,14 @@
 		  		<div>Para asignar o quitar un grupo al usuario ingrese el ID del grupo</div>
 		  	</div>
 		    <div class="modal-body">
-	    		<label>Ingresa el ID del grupo</label>
-	    		<input type="text" id="idgroup" ng-model="idgroup" required/>
-	    		<button class="btn btn-info" ng-if="addbutton" ng-click="saveGrupo()"  ng-disabled="!idgroup">Agregar a grupo</button>
-	    		<button class="btn btn-danger" ng-if="delbutton">Eliminar del grupo</button>
-	    		<div ng-if="delbutton">
-	    			<p>
-	    				<span>Planes asignados:</span>
-	    			</p>
-	    			<p>
-	    				<span></span>
-	    			</p>
-	    		</div>
-
-
+                <div class="col-md-12 msg">
+                    <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
+                </div>
 	    	</div>
+            <div class="modal-footer">
+                <a class="btn btn-success ajaxForm" data-form="#putGrupoListForm" >Aceptar</a>
+                <a class="btn btn-danger cancelar" ng-click="cancelDelete()" data-dismiss="modal">Cerrar</a>
+            </div>
 	    </div>
 	  </div>
 	</div>
@@ -116,33 +108,16 @@
 @endsection
 
 @section('javascript')
+    <script src="{{$prefix}}/js/app/ajaxSearch.js" charset="utf-8"></script>
+    <script src="{{$prefix}}/js/app/ajaxPrevent.js" charset="utf-8"></script>
+    <script src="{{$prefix}}/js/app/delete.js" charset="utf-8" prefix="{{$prefix}}"></script>
+    <script src="{{$prefix}}/js/app/modalURL.js" charset="utf-8"></script>
+    <script src="{{$prefix}}/js/tableCheckbox.js" charset="utf-8"></script>
+    <script src="{{$prefix}}/js/app/submitForm.js" charset="utf-8"></script>
     <script type="text/javascript">
-        function ajaxLoad(filename, content) {
-            content = typeof content !== 'undefined' ? content : 'content';
-            $('.loading').show();
-            $.ajax({
-                type: "GET",
-                url: filename,
-                contentType: false,
-                success: function (data) {
-                    $("#" + content).html(data);
-                    $('.loading').hide();
-                },
-                error: function (xhr, status, error) {
-                    alert(xhr.responseText);
-                }
-            });
-        }
-
-
         $(document).ready(function () {
             ajaxLoad('{!!route('admin.usuarios.list')!!}');
         });
-        $(document).on('click', '.pagination a', function (event) {
-            event.preventDefault();
-            ajaxLoad($(this).attr('href'));
-        });
     </script>
-    <script type="text/javascript" src="{{$prefix}}/js/app/delete.js"></script>
 
 @endsection

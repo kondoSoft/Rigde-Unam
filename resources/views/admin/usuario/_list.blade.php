@@ -45,9 +45,9 @@
                             }}
                         {{Form::close()}}
                     @endif
-                    <a class="btn btn-warning"  title="Ver/Asignar accesos de este usuario" ng-click="asignarAccesos(usuario)"><i class="glyphicon glyphicon-check"></i></a>
+                    <a href="{{route('admin.accesos.showListForm', ['id' => $user->id])}}" data-modal="#modalaccessuser" title="Ver/Asignar accesos de este usuario" class="modalURL btn btn-warning" ><i class="glyphicon glyphicon-check"></i></a>
                     @if($user->tipoUsuario == 1)
-                        <a ng-show="usuario.clitipousuario == '1'" class="btn btn-info"  title="Ver/Asignar grupo a este usuario" ng-click="asignarGrupo(usuario)"><i class="glyphicon glyphicon-check"></i></a>
+                        <a href="{{route('admin.grupos.showListForm', ['id' => $user->id])}}" data-modal="#modalgroupuser" title="Ver/Asignar grupos de este usuario" class="modalURL btn btn-info" ><i class="glyphicon glyphicon-check"></i></a>
                     @endif
                 </div>
             </td>
