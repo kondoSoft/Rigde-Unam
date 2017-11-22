@@ -56,6 +56,9 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
 
         Route::get('accesos/listForm/{user}', 'Admin\AccesosController@showListForm')->name('admin.accesos.showListForm');
         Route::put('accesos/listForm/{user}', 'Admin\AccesosController@putListForm')->name('admin.accesos.putListForm');
+
+        Route::get('grupos/listForm/{user}', 'Admin\GruposController@showListForm')->name('admin.grupos.showListForm');
+        Route::put('grupos/listForm/{user}', 'Admin\GruposController@putListForm')->name('admin.grupos.putListForm');
     });
 
     // Authentication Routes...

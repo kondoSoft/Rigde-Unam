@@ -93,19 +93,14 @@
 		  		<div>Para asignar o quitar un grupo al usuario ingrese el ID del grupo</div>
 		  	</div>
 		    <div class="modal-body">
-	    		<label>Ingresa el ID del grupo</label>
-	    		<input type="text" id="idgroup" ng-model="idgroup" required/>
-	    		<button class="btn btn-info" ng-if="addbutton" ng-click="saveGrupo()"  ng-disabled="!idgroup">Agregar a grupo</button>
-	    		<button class="btn btn-danger" ng-if="delbutton">Eliminar del grupo</button>
-	    		<div ng-if="delbutton">
-	    			<p>
-	    				<span>Planes asignados:</span>
-	    			</p>
-	    			<p>
-	    				<span></span>
-	    			</p>
-	    		</div>
+                <div class="col-md-12 msg">
+                    <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
+                </div>
 	    	</div>
+            <div class="modal-footer">
+                <a class="btn btn-success ajaxForm" data-form="#putGrupoListForm" >Aceptar</a>
+                <a class="btn btn-danger cancelar" ng-click="cancelDelete()" data-dismiss="modal">Cerrar</a>
+            </div>
 	    </div>
 	  </div>
 	</div>
