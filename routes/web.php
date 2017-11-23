@@ -47,6 +47,8 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
     });
 
     Route::group(['prefix' => ''], function() {
+
+        //Rutas para CRUD Usuarios
         Route::get('usuarios/index', 'Admin\UsuariosController@index')->name('admin.usuarios.index');
         Route::get('usuarios/_list', 'Admin\UsuariosController@getList')->name('admin.usuarios.list');
         Route::get('usuarios/create', 'Admin\UsuariosController@create')->name('admin.usuarios.create');
@@ -55,14 +57,22 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
         Route::put('usuarios/{user}', 'Admin\UsuariosController@update')->name('admin.usuarios.update');
         Route::delete('usuarios/{user}', 'Admin\UsuariosController@destroy')->name('admin.usuarios.delete');
 
+        //Rutas para mostrar y asignar accesos al usuario.
         Route::get('accesos/listForm/{user}', 'Admin\AccesosController@showListForm')->name('admin.accesos.showListForm');
         Route::put('accesos/listForm/{user}', 'Admin\AccesosController@putListForm')->name('admin.accesos.putListForm');
 
+        //Rutas para mostrar y asignar grupos del usuario.
         Route::get('grupos/listForm/{user}', 'Admin\GruposController@showListForm')->name('admin.grupos.showListForm');
         Route::put('grupos/listForm/{user}', 'Admin\GruposController@putListForm')->name('admin.grupos.putListForm');
+
+        //Rutas para CRUD Grupos
         Route::get('grupos/index', 'Admin\GruposController@index')->name('admin.grupos.index');
-        Route::get('grupos/create', 'Admin\GruposController@create')->name('admin.grupos.create');
         Route::get('grupos/_list', 'Admin\GruposController@getList')->name('admin.grupos.list');
+        Route::get('grupos/create', 'Admin\GruposController@create')->name('admin.grupos.create');
+        Route::post('grupos/create', 'Admin\GruposController@store');
+        Route::get('grupos/{grupo}/edit', 'Admin\GruposController@edit')->name('admin.grupos.edit');
+        Route::put('grupos/{grupo}', 'Admin\GruposController@update')->name('admin.grupos.update');
+        Route::delete('grupos/{grupo}', 'Admin\GruposController@delete')->name('admin.grupos.delete');
     });
 
     // Authentication Routes...

@@ -127,7 +127,7 @@
     				  	<br><span class="text-muted"> Administración de usuarios</span>
     				  </li>
     				  <li class="list-group-item">
-    				  	<a href="#/groups" class="font16"><i class="glyphicon glyphicon-user"></i> Grupos de usuarios</a>
+    				  	<a href="{{route('admin.grupos.index')}}" class="font16"><i class="glyphicon glyphicon-user"></i> Grupos de usuarios</a>
     				  	<br><span class="text-muted">Administración de grupos</span>
     				  </li>
     				  <!--<li class="list-group-item"><a href="#/listadimensiones">Dimensiones</a></li>-->
