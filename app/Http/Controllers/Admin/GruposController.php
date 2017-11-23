@@ -81,7 +81,7 @@ class GruposController extends Controller
         return view('admin.grupo.edit', compact('grupo'));
     }
 
-    public function update(GrupoRequest $grupo, Request $request) {
+    public function update(Grupo $grupo, GrupoRequest $request) {
         if($grupo->updateModel($request->all(), $grupo) == true) {
             return redirect()->route('admin.grupos.index')->with('success', 'Grupo Acualizado');
         }
