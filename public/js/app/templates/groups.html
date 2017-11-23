@@ -5,7 +5,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">			
+		<div class="col-md-12">
 			<a class="btn btn-success" href="#/groups/nuevo">Agregar grupo <i class="glyphicon glyphicon-plus"></i></a>
 		</div>
 	</div>
@@ -16,36 +16,36 @@
 					<form class="form-horizontal" role="form" name="regFormBoletin">
 						<div class="form-group col-md-12">
 							<div class="col-xs-12 col-sm-12">
-								<label class="sr-only" for="q">Nombre grupo</label>    															
+								<label class="sr-only" for="q">Nombre grupo</label>
 							</div>
 							<div class="col-xs-12 col-sm-10">
-					        	<input 
-					        		id="q" 
+					        	<input
+					        		id="q"
 					        		name="q"
 					        		ng-model="q"
 					        		type="text"
 					        		placeholder="Nombre del grupo contiene"
 					        		class="form-control col-md-10"
-					        		>				   
-				        	</div>   	
+					        		>
+				        	</div>
 				        	<div class="col-sm-2 col-xs-12">
 				        		<div class="visible-xs">&nbsp;</div>
-				        		<button class="btn btn-primary col-xs-12" type="button" ng-disabled="isSearching" ng-click="getSearch()"><i class="glyphicon glyphicon-search"></i> Buscar</button>					      		
-				        	</div>				      		
-						</div>    			              
+				        		<button class="btn btn-primary col-xs-12" type="button" ng-disabled="isSearching" ng-click="getSearch()"><i class="glyphicon glyphicon-search"></i> Buscar</button>
+				        	</div>
+						</div>
 					</form>
 				</div>
-			</div>				
-		</div>	
+			</div>
+		</div>
 	</div>
-	<div class="row">		
-	
+	<div class="row">
+
 		<div class="col s12 m12 l12">
 			<div>
 				<dir-pagination-controls boundary-links="true" on-page-change="changePage(newPageNumber)" template-url="/js/app/templates/dirpagination.html"></dir-pagination-controls>
 			</div>
-		</div>	
-		
+		</div>
+
 	</div>
 	<div class="row">
 		<table class="table table-striped table-hover " id="tramtable">
@@ -60,20 +60,20 @@
 			      	<a id="ord3" class="order-list order-list-active" ng-click="doOrder('climail','asc')"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
 			      	Nombre
 			      	<a id="ord4" class="order-list" ng-click="doOrder('climail','desc')"><i class="mdi-hardware-keyboard-arrow-down"></i></a>
-			      </th>				      		      
+			      </th>
 			      <th data-field="comandos">
 			      	Comandos
 			      </th>
 			  </tr>
 			</thead>
 
-			<tbody id="tbtram">			
+			<tbody id="tbtram">
 			  <tr class="collection-item" dir-paginate="grupo in groups | itemsPerPage: paginationdata.per_page" total-items={{paginationdata.total}} current-page="paginationdata.current_page">
-	        		
+
 
 		            <td>
-		            	{{grupo.gid}} 
-		            	
+		            	{{grupo.gid}}
+
 		            </td>
 		            <td>
 		            	{{grupo.gnombre}}
@@ -82,15 +82,15 @@
 		            	<div class="btn-group" role="group" ng-hide=" hasAccess('superadmin')">
 		            		<a class="btn btn-primary"  title="Editar este grupo" href="#/group/{{grupo.cliid}}"><i class="glyphicon glyphicon-pencil"></i></a>
 							<a class="btn btn-danger"  title="Eliminar este grupo" ng-click="deleteuserWait(grupo)"><i class="glyphicon glyphicon-trash"></i></a>
-								
+
 		            	</div>
-						
+
 		            </td>
 		        </tr>
 			</tbody>
 		</table>
 	</div>
-	
+
 </div>
 
 <!-- Modal Structure -->
@@ -98,17 +98,16 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h2>Lista de grupos</h2>	
+				<h2>Lista de grupos</h2>
 			</div>
 		    <div class="modal-body">
-		    	<p>{{deletemsg}}</p>	
-		    </div>		    
-		  	
+		    	<p>{{deletemsg}}</p>
+		    </div>
+
 		  <div class="modal-footer">
 		    <a class="btn btn-success" ng-click="deleteuser()">Aceptar</a>
 		    <a class="btn btn-danger" ng-click="cancelDelete()">Cancelar</a>
-		  </div>	
-		</div>	
-	</div>  
+		  </div>
+		</div>
+	</div>
 </div>
-

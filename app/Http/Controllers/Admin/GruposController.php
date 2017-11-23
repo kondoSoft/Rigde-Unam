@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
 use App\Grupo;
 use App\User;
 
@@ -47,5 +49,45 @@ class GruposController extends Controller
         }
 
         return 'Guardado con exito';
+    }
+
+    public function index () {
+        return view('admin.grupo.index');
+    }
+
+    public function getList()
+    {
+        Session::put('grupoSearch', Input::has('ok') ? Input::get('search') : (Session::has('grupoSearch') ? Session::get('grupoSearch') : ''));
+        Session::put('grupoField', Input::has('field') ? Input::get('field') : (Session::has('grupoField') ? Session::get('grupoField') : 'nombre'));
+        Session::put('grupoSort', Input::has('sort') ? Input::get('sort') : (Session::has('grupoSort') ? Session::get('grupoSort') : 'asc'));
+        $grupos = Grupo::where('nombre', 'like', '%' . Session::get('grupoSearch') . '%')
+           ->orderBy(Session::get('grupoField'), Session::get('grupoSort'))->paginate(8);
+        return view('admin.grupo._list', compact('grupos'));
+    }
+
+    public function create() {
+        return view('admin.grupo.create');
+    }
+
+    public function store(Request $request) {
+        $grupo = new Grupo;
+        if ($grupo->createModel($request)) {
+            return redirect()->route('admin.grupos.index')->with('success', 'Grupo registrado');
+        }
+    }
+
+    public function edit(Grupo $grupo) {
+        return view('admin.grupo.edit', compact('grupo'));
+    }
+
+    public function update(Grupo $grupo, Request $request) {
+        if($grupo->updateModel($request->all(), $grupo) == true) {
+            return redirect()->route('admin.grupos.index')->with('success', 'Grupo Acualizado');
+        }
+    }
+
+    public function delete(Grupo $grupo) {
+        $grupo->delete();
+        return back()->with('success', 'Grupo eliminado ' . $grupo->nombre);
     }
 }
