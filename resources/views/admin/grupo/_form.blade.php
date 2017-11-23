@@ -17,7 +17,7 @@
                     @endif
 				</div>
 				<div class="form-group{!! $errors->has('descripcion') ? ' has-error' : '' !!}" >
-                    {{Form::label('descripcion', 'Nombre del grupo*')}}
+                    {{Form::label('descripcion', 'Descripcion del grupo*')}}
                     {{Form::textArea('descripcion', null, ['class' => 'form-control', 'required' => true, 'rows' => '3'])}}
                     @if ($errors->has('descripcion'))
                         <span class="help-block">
