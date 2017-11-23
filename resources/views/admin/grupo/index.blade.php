@@ -25,26 +25,25 @@
         </div>
         <div id="content">
         </div>
+        <!-- Modal Structure -->
+        <div id="modalconfirmdelete" class="modal fade" role="dialog">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			<div class="modal-header">
+        				<h2>Eliminar</h2>
+        			</div>
+        		    <div class="modal-body">
+                        ¿Desea realmente eliminarlo?
+        		    </div>
+
+        		  <div class="modal-footer">
+        		    <a class="btn btn-success" ng-click="deleteuser()" id="delete" data-dismiss="modal">Aceptar</a>
+        		    <a class="btn btn-danger" ng-click="cancelDelete()" data-dismiss="modal">Cancelar</a>
+        		  </div>
+        		</div>
+        	</div>
+        </div>
 @endsection
-
-<!-- Modal Structure -->
-<div id="modalconfirmdelete" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h2>Eliminar</h2>
-			</div>
-		    <div class="modal-body">
-                ¿Desea realmente eliminarlo?
-		    </div>
-
-		  <div class="modal-footer">
-		    <a class="btn btn-success" ng-click="deleteuser()" id="delete" data-dismiss="modal">Aceptar</a>
-		    <a class="btn btn-danger" ng-click="cancelDelete()" data-dismiss="modal">Cancelar</a>
-		  </div>
-		</div>
-	</div>
-</div>
 
 @section('javascript')
     <script src="{{$prefix}}/js/app/ajaxSearch.js" charset="utf-8"></script>
