@@ -7,7 +7,7 @@
                <table class=" table table-hover table-condensed">
                     <thead>
                          <tr>
-                              <th width="20%" >Grado / Area</th>
+                              <th width="20%" >Semestre / Area</th>
                               <th width="20%">Total Grupo</th>
                               <th width="20%">Turno Matutino</th>
                               <th width="20%">Turno Vespertino</th>
