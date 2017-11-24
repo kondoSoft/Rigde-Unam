@@ -132,7 +132,7 @@
     				  </li>
     				  <!--<li class="list-group-item"><a href="#/listadimensiones">Dimensiones</a></li>-->
     				  <li class="list-group-item">
-    				  	<a href="#/listaindicadores" class="font16"><i class="glyphicon glyphicon-info-sign"></i> Indicadores</a>
+    				  	<a href="{{route('admin.indicadores.index')}}" class="font16"><i class="glyphicon glyphicon-info-sign"></i> Indicadores</a>
     				  	<br><span class="text-muted">Administración de indicadores</span>
     				  </li>
     				  <li class="list-group-item">
