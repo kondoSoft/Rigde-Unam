@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th>
-            <a href="javascript:ajaxLoad('{{route('admin.ususarios.list', ['field' => 'username', 'sort' => Session::get('userSort')=='asc'?'desc':'asc' ])}}')">
+            <a href="javascript:ajaxLoad('{{route('admin.usuarios.list', ['field' => 'username', 'sort' => Session::get('userSort')=='asc'?'desc':'asc' ])}}')">
                 Usuario
             </a>
             <i class="glyphicon  {{ Session::get('userField')=='username'?(Session::get('userSort')=='asc'?'glyphicon-sort-by-alphabet':'glyphicon-sort-by-alphabet-alt'):'' }}"></i>
