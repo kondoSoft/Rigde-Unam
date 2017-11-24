@@ -40,10 +40,10 @@
           <table class="table" id="horarios">
                <thead>
                     <tr>
-                         <th colspan="3">Asignaturas y horarios que se imparte en el plan Unam</th>
+                         <th colspan="3">Asignaturas y horarios que se imparte en el plan UNAM</th>
                     </tr>
                     <tr>
-                         <th>Clave Materia</th>
+                         <th>Clave Asignatura</th>
                          <th>Horario</th>
                     </tr>
                </thead>
@@ -60,14 +60,14 @@
                               </select>
                          </td>
                          <td><input type="text" class="form-control" name="horario[1]"></td>
-                         <td>
+                         <td align="right">
                               <button class="btn btn-danger" type="button" id="eliminar"><i class="glyphicon glyphicon-trash"></i></button>
+                              <button class="btn btn-success" type="button" id="agregar"><i class="glyphicon glyphicon-plus"></i></button>
                          </td>
                     </tr>
                </tbody>
           </table>
           <div class="form-group">
-                   <button class="btn btn-success" type="button" id="agregar">Agregar</button>
           </div>
      </div>
 </div>
