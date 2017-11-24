@@ -14,37 +14,37 @@
                          <th>{{$nombre}}</th>
                          <td>
                               <div class="input-group bootstrap-timepicker timepicker">
-                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1">
+                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                          </td>
                          <td>
                               <div class="input-group bootstrap-timepicker timepicker">
-                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1">
+                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                          </td>
                          <td>
                               <div class="input-group bootstrap-timepicker timepicker">
-                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1">
+                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                          </td>
                          <td>
                               <div class="input-group bootstrap-timepicker timepicker">
-                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1">
+                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                          </td>
                          <td>
                               <div class="input-group bootstrap-timepicker timepicker">
-                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1">
+                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                          </td>
                          <td>
                               <div class="input-group bootstrap-timepicker timepicker">
-                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1">
+                                   <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                          </td>

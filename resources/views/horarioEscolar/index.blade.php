@@ -24,7 +24,7 @@
      <script type="text/javascript">
           $('.timepicker1').timepicker({
                showMeridian: false,
-               defaultTime: '12:00'
+               defaultTime: false
           });
      </script>
 @endsection
