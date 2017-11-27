@@ -26,7 +26,9 @@
         $(document).ready(function() {
             $('.escolaridadSelect2').select2({
                 theme: "bootstrap",
-                tags: true
+                tags: true,
+                placeholder: "Seleccione o ingrese escolaridad",
+                allowClear: true
             });
         });
     </script>
