@@ -15,6 +15,14 @@
                         <div class="form-group col-md-12">
                             @yield('panel-body')
                         </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 form-group">
+                                @yield('btnSave')
+                            </div>
+                            <div class="col-md-2">
+                                @yield('btnNext')
+                            </div>
+                        </div>
     				</div>
                     <div class="panel-footer">
                         @yield('panel-footer')
