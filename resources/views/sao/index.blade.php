@@ -4,10 +4,18 @@
     @include('menu.menu')
 @endsection
 @section('titulo')
-    Sitación Actual de Operación
+    Situación Actual de Operación
 @endsection
 @section('panel-body')
-   @include('sao._form')
+    {{Form::open()}}
+        @include('sao._form')
+    {{Form::close()}}
+@endsection
+@section('btnSave')
+    {{Form::submit('Guardar', ['class' => 'btn btn-success'])}}
+@endsection
+@section('btnNext')
+    <a href="#" class="btn btn-info">Siguiente</a>
 @endsection
 
 @section('javascript')
