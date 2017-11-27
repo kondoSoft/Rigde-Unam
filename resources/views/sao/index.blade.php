@@ -1,21 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.crud')
 
 @section('menu')
     @include('menu.menu')
 @endsection
-
-@section('content')
-     <div class="panel panel-default">
-          <div class="panel-heading">
-               <h3>Sitación Actual de Operación</h3>
-          </div>
-          <div class="panel-body">
-               @include('sao._form')
-          </div>
-     </div>
-
+@section('titulo')
+    Sitación Actual de Operación
+@endsection
+@section('panel-body')
+   @include('sao._form')
 @endsection
 
 @section('javascript')
-
+    <script src="{{asset('/js/app/sao.js')}}" charset="utf-8"></script>
 @endsection
