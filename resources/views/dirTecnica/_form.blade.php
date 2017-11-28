@@ -47,6 +47,7 @@
             <tr>
                  <th>Clave Asignatura</th>
                  <th>Horario</th>
+                 <th>Comandos</th>
             </tr>
        </thead>
        <tbody>
@@ -61,17 +62,19 @@
                            <option value="1516">Psicologia I</option>
                       </select>
                  </td>
-                 <td>
-                     <div class="input-group bootstrap-timepicker timepicker form-group">
-                          <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
+                 <td class="col-md-4">
+                     <div class="input-group bootstrap-timepicker timepicker">
+                          <input id="timepicker1" name="horario1[1]" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                           <span class="input-group-addon">Hrs</span>
-                          <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
+                          <input id="timepicker1" name="horario1[2]" type="text" class="form-control input-small timepicker1" placeholder="23:59">
                           <span class="input-group-addon">Hrs</span>
                      </div>
                  </td>
                  <td align="right">
-                      <button class="btn btn-danger" type="button" id="eliminar"><i class="glyphicon glyphicon-trash"></i></button>
-                      <button class="btn btn-success" type="button" id="agregar"><i class="glyphicon glyphicon-plus"></i></button>
+                     <div class="button-group">
+                         <button class="btn btn-danger" type="button" id="eliminar"><i class="glyphicon glyphicon-trash"></i></button>
+                         <button class="btn btn-success" type="button" id="agregar"><i class="glyphicon glyphicon-plus"></i></button>
+                     </div>
                  </td>
             </tr>
        </tbody>
