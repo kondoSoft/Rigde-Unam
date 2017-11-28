@@ -10,7 +10,7 @@
         </thead>
         <tbody>
              <tr>
-                  <td>4 <sup>to</sup></td>
+                  <td>1 <sup>er</sup> Semestre</td>
                   <td>
                        <input type="text" class="form-control sumMat">
                   </td>
@@ -22,7 +22,7 @@
                   </td>
              </tr>
              <tr>
-                  <td>5 <sup>to</sup></td>
+                  <td>2 <sup>do</sup> Semestre</td>
                   <td>
                        <input type="text" class="form-control sumMat">
                   </td>
@@ -34,7 +34,7 @@
                   </td>
              </tr>
              <tr>
-                  <td>6 <sup>to</sup> Area I</td>
+                  <td>3 <sup>er</sup> Semestre</td>
                   <td>
                        <input type="text" class="form-control sumMat">
                   </td>
@@ -46,7 +46,7 @@
                   </td>
              </tr>
              <tr>
-                  <td>6 <sup>to</sup> Area II</td>
+                  <td>4 <sup>to</sup> Semestre</td>
                   <td>
                        <input type="text" class="form-control sumMat">
                   </td>
@@ -58,7 +58,7 @@
                   </td>
              </tr>
              <tr>
-                  <td>6 <sup>to</sup> Area III</td>
+                  <td>5 <sup>to</sup> Semestre</td>
                   <td>
                        <input type="text" class="form-control sumMat">
                   </td>
@@ -70,7 +70,7 @@
                   </td>
              </tr>
              <tr>
-                  <td>6 <sup>to</sup> Area IV</td>
+                  <td>6 <sup>to</sup> Semestre</td>
                   <td>
                        <input type="text" class="form-control sumMat">
                   </td>
