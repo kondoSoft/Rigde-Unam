@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('style')
+    @yield('style')
+@endsection
+
 @section('content')
     <div class="container">
     	<div class="row">
