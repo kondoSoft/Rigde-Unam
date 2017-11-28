@@ -19,7 +19,13 @@ class rcaeController extends Controller
               'Laboratorio de Educación para la Salud',
               'Laboratorio Multidisciplinario'
          ];
+         $escolaridad = [
+             'Técnico',
+             'Licenciatura',
+             'Maestría',
+             'Doctorado'
+         ];
 
-         return view('rcae.index', compact('areas'));
+         return view('rcae.index', compact('areas', 'escolaridad'));
     }
 }
