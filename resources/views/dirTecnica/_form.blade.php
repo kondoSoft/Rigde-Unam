@@ -19,9 +19,14 @@
        <label for="">Grado académico y nombre de estudio</label>
        <input type="text" class="form-control" name="grado[{{$turno or ''}}]">
   </div>
-  <div class="form-group col-md-6">
+  <div class="form-inline col-md-6">
        <label for="">Horario de permanencia en la ISI (rango)</label>
-       <input type="text" class="form-control" name="horario[{{$turno or ''}}]">
+        <div class="input-group bootstrap-timepicker timepicker form-group">
+             <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
+             <span class="input-group-addon">Hrs</span>
+             <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
+             <span class="input-group-addon">Hrs</span>
+        </div>
   </div>
   <div class="form-group col-md-6">
        <label for="">Antigüedad docente DGIRE</label>
@@ -56,7 +61,14 @@
                            <option value="1516">Psicologia I</option>
                       </select>
                  </td>
-                 <td><input type="text" class="form-control" name="horario[1]"></td>
+                 <td>
+                     <div class="input-group bootstrap-timepicker timepicker form-group">
+                          <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
+                          <span class="input-group-addon">Hrs</span>
+                          <input id="timepicker1" type="text" class="form-control input-small timepicker1" placeholder="23:59">
+                          <span class="input-group-addon">Hrs</span>
+                     </div>
+                 </td>
                  <td align="right">
                       <button class="btn btn-danger" type="button" id="eliminar"><i class="glyphicon glyphicon-trash"></i></button>
                       <button class="btn btn-success" type="button" id="agregar"><i class="glyphicon glyphicon-plus"></i></button>
