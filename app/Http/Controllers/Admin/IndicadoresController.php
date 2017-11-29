@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Indicador;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
 
 class IndicadoresController extends Controller
 {
@@ -18,6 +20,16 @@ class IndicadoresController extends Controller
         return view('admin.indicador.index');
     }
 
+    public function getList() {
+        Session::put('indicadorSearch', Input::has('ok') ? Input::get('search') : (Session::has('indicadorSearch') ? Session::get('indicadorSearch') : ''));
+        Session::put('indicadorField', Input::has('field') ? Input::get('field') : (Session::has('indicadorField') ? Session::get('indicadorField') : 'nombre'));
+        Session::put('indicadorSort', Input::has('sort') ? Input::get('sort') : (Session::has('indicadorSort') ? Session::get('indicadorSort') : 'asc'));
+        $indicadores = Indicador::where('nombre', 'like', '%' . Session::get('indicadorSearch') . '%')
+            ->orwhere('clave', 'like', '%' . Session::get('indicadorSearch') . '%')
+            ->orderBy(Session::get('indicadorField'), Session::get('indicadorSort'))->paginate(8);
+        return view('admin.indicador._list', compact('indicadores'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +37,7 @@ class IndicadoresController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.indicador.create');
     }
 
     /**

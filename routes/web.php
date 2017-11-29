@@ -76,6 +76,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
 
         //Rutas para CRUD indicadores
         Route::resource('indicadores', 'Admin\IndicadoresController', ['except' => ['show'], 'as' => 'admin']);
+        Route::get('indicadores/_list', 'Admin\IndicadoresController@getList')->name('admin.indicadores.list');
     });
 
     // Authentication Routes...
