@@ -46,7 +46,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
          Route::get('materiales', 'conteoMateriales\conteoMaterialesController@index')->name('conteo.materiales.index');
     });
 
-    Route::group(['prefix' => ''], function() {
+    Route::group(['prefix' => 'admin'], function() {
 
         //Rutas para CRUD Usuarios
         Route::get('usuarios/index', 'Admin\UsuariosController@index')->name('admin.usuarios.index');
@@ -73,6 +73,10 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
         Route::get('grupos/{grupo}/edit', 'Admin\GruposController@edit')->name('admin.grupos.edit');
         Route::put('grupos/{grupo}', 'Admin\GruposController@update')->name('admin.grupos.update');
         Route::delete('grupos/{grupo}', 'Admin\GruposController@delete')->name('admin.grupos.delete');
+
+        //Rutas para CRUD indicadores
+        Route::resource('indicadores', 'Admin\IndicadoresController', ['except' => ['show'], 'as' => 'admin']);
+        Route::get('indicadores/_list', 'Admin\IndicadoresController@getList')->name('admin.indicadores.list');
     });
 
     // Authentication Routes...
