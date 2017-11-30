@@ -5,31 +5,61 @@
 			<form  name="indicadorForm">
 			<div ng-show="formIndi">
 				<div class="row">
-				  <div class="form-group col-md-4" show-errors>
-				    <label for="nomindicador">Nombre del Indicador*</label>
-				    <input required type="text" class="form-control" id="nomindicador" name="nomindicador" placeholder="" ng-model="nomindicador">
+				  <div class="form-group col-md-4{{ $errors->has('nombre') ? ' has-error' : '' }}">
+                      {{Form::label('nombre', 'Nombre del indicador *')}}
+                      {{Form::text('nombre', null, ['class' => 'form-control', 'required'])}}
+                      @if ($errors->has('nombre'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('nombre') }}</strong>
+                          </span>
+                      @endif
 				  </div>
-				  <div class="form-group col-md-4" show-errors>
-				    <label for="claveindicador">Clave*</label>
-				    <input required type="text" class="form-control" id="claveindicador" name="claveindicador" placeholder="" ng-model="claveindicador">
-				  </div>
-				  <div class="form-group col-md-4" show-errors>
-				   	<label for="tipoindicador">Tipo de Indicador*</label>
-				   	<input required type="text" class="form-control" id="tipoindicador" name="tipoindicador"placeholder="" ng-model="tipoindicador">
+				  <div class="form-group col-md-4{{ $errors->has('clave') ? 'has-error' : '' }}">
+                      {{Form::label('clave', 'Clave *')}}
+                      {{Form::text('clave', null, ['class' => 'form-control', 'required'])}}
+                      @if ($errors->has('clave'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('clave') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+				  <div class="form-group col-md-4{{ $errors->has('tipo') ? 'has-error' : '' }}">
+                      {{ Form::label('tipo', 'Tipo de indicador *')}}
+                      {{ Form::text('tipo', null, ['class' => 'form-control', 'required'])}}
+                      @if ($errors->has('tipo'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('tipo')}}</strong>
+                          </span>
+                      @endif
 				  </div>
 				</div>
 			<div class="row">
-				<div class="form-group col-md-4" show-errors>
-				   	<label for="origen">Origen de Indicador*</label>
-				   	<textarea required class="form-control" rows="3" id="origen" name="origen" ng-model="origen"></textarea>
+				<div class="form-group col-md-4{{ $errors->has('origen') ? 'has-error' : '' }}">
+                    {{ Form::label('origen', 'Origen del indicador *') }}
+                    {{ Form::textArea('origen', null, ['class' => 'form-control', 'style' => 'resize : none', 'rows' => '3', 'required']) }}
+                    @if ($errors->has('origen'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('origen') }}</strong>
+                        </span>
+                    @endif
 				</div>
-				<div class="form-group col-md-4" show-errors>
-				   	<label for="objetivo">Objetivo*</label>
-				   	<textarea required class="form-control" rows="3" id="objetivo" name="objetivo" ng-model="objetivo"></textarea>
+				<div class="form-group col-md-4{{ $errors->has('objetivo') ? 'has-error' : '' }}">
+                    {{ Form::label('objetivo', 'Objetivo *')}}
+                    {{ Form::textArea('objetivo', null, ['class' => 'form-control', 'style' => 'resize : none', 'rows' => '3', 'required']) }}
+                    @if ($errors->has('objetivo'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('objetivo')}} </strong>
+                        </span>
+                    @endif
 				</div>
-				<div class="form-group col-md-4" show-errors>
-				   	<label for="pertinencia">Pertinencia*</label>
-				   	<textarea required class="form-control" rows="3" id="pertinencia" name="pertinencia" ng-model="pertinencia"></textarea>
+				<div class="form-group col-md-4{{ $errors->has('pertinencia') ? 'has-error' : '' }} ">
+                    {{ Form::label('pertinencia', 'Pertinencia *')}}
+                    {{ Form::textArea('pertinencia', null, ['class' => 'form-control', 'style' => 'resize : none', 'rows' => '3', 'required']) }}
+                    @if ($errors->has('pertinencia'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('pertinencia')}} </strong>
+                        </span>
+                    @endif
 				</div>
 			</div>
 			<div class="row">
