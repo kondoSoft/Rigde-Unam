@@ -58,6 +58,7 @@ class MaterialesSeeder extends Seeder
                     $idUnidadMedida = Unidadmedida::firstOrCreate(['nombre' => trim($row['unidad_de_medida'])])->id;
                     //Recorremos los id's de las columnas para obtener el rubro de la minima y la cantidad minima,
                     //ya que este se encuentra en una sola columna y se requiere separarlos.
+                    $idMaterialRequerimiento= 0;
                     foreach ($idAsig as $id) {
                         $cantidad = 0;
                         try {
