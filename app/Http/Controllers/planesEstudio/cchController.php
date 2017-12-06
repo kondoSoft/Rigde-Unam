@@ -9,30 +9,6 @@ class cchController extends Controller
 {
      public function index() {
           $cch = [
-               '1er' => [
-                   'Lengua Extranjera' => [
-                        'Francés I',
-                        'Inglés I',
-                   ]
-               ],
-               '2do' => [
-                   'Lengua Extranjera' => [
-                        'Francés II',
-                        'Inglés II',
-                   ]
-               ],
-               '3er' => [
-                   'Lengua Extranjera' => [
-                        'Francés III',
-                        'Inglés III',
-                   ]
-               ],
-               '4t0' => [
-                   'Lengua Extranjera' => [
-                        'Francés IV',
-                        'Inglés IV',
-                   ]
-               ],
                '5to' => [
                    '1ra Opción' => [
                         'Calculo Integral y Diferencial I',
