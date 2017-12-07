@@ -15,7 +15,8 @@ class CreateMaterialesRequerimientoTable extends Migration
     {
         Schema::create('materialesRequerimiento', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_asignatura');
+            $table->integer('asignatura_id');
+            $table->integer('material_id');
             $table->string('rubroMinima');
             $table->integer('cantidad');
             $table->string('cantidadMinima');

@@ -15,8 +15,8 @@ class CreateMaterialIsiTable extends Migration
     {
         Schema::create('material_isi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_isi');
-            $table->integer('id_material');
+            $table->integer('isi_id');
+            $table->integer('material_id');
             $table->integer('cantidadExistente');
             $table->integer('faltantes');
             $table->integer('cumple');

@@ -56,9 +56,13 @@ class MaterialesSeeder extends Seeder
                     //Si existe, nos retorna el id, de lo contrario, lo guarda como nuevo registro y nos regresa el id
                     $idTipoMaterial = TipoMaterial::firstOrCreate(['nombre' => trim($row['tipo'])])->id;
                     $idUnidadMedida = Unidadmedida::firstOrCreate(['nombre' => trim($row['unidad_de_medida'])])->id;
+                    $idMaterial = Material::firstOrCreate([
+                        'nombre' => trim($row['material']),
+                        'unidadMedida_id' => $idUnidadMedida,
+                        'tipoMaterial_id' => $idTipoMaterial,
+                    ])->id;
                     //Recorremos los id's de las columnas para obtener el rubro de la minima y la cantidad minima,
                     //ya que este se encuentra en una sola columna y se requiere separarlos.
-                    $idMaterialRequerimiento= 0;
                     foreach ($idAsig as $id) {
                         $cantidad = 0;
                         try {
@@ -74,23 +78,14 @@ class MaterialesSeeder extends Seeder
                             //$this->command->info('no existe la columna cantidad, se reaiza el calculo manual. cantidad minima: ' . print_r($row));
                         }
                         $idMaterialRequerimiento = MaterialRequerimiento::firstOrCreate([
-                            'id_asignatura' => trim($id),
+                            'asignatura_id' => trim($id),
                             'rubroMinima' => $rubroMinima,
                             'cantidadMinima' => $cantidadMinima,
                             'cantidad' => trim($row['cantidad']),
-                            'valorTotalPorcentual' => trim($row['porcentaje'])
+                            'valorTotalPorcentual' => trim($row['porcentaje']),
+                            'material_id' => $idMaterial,
                         ])->id;
                     }
-                    $material = 0;
-                    $material = Material::firstOrNew([
-                        'nombre' => trim($row['material'])
-                    ],
-                    [
-                        'id_unidadMedida' => $idUnidadMedida,
-                        'id_tipoMaterial' => $idTipoMaterial,
-                        'id_materialRequerimiento' => $idMaterialRequerimiento
-                    ]);
-                    $material->save();
                 }
             });
             $this->command->info('Se termino de guardar con exito.');
