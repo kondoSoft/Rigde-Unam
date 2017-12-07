@@ -15,10 +15,9 @@ class CreateMaterialesTable extends Migration
     {
         Schema::create('materiales', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_materialRequerimiento');
             $table->string('nombre');
-            $table->integer('id_unidadMedida');
-            $table->integer('id_tipoMaterial');
+            $table->integer('unidadMedida_id');
+            $table->integer('tipoMaterial_id');
             $table->timestamps();
         });
     }
