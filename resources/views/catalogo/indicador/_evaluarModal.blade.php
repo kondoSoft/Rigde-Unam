@@ -1,0 +1,1 @@
+{{ Form::label('formula', 'Fórmula') }}
