@@ -35,6 +35,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
 
       Route::resource('indicadores', 'Catalogos\IndicadoresController', ['except' => ['show']]);
       Route::get('indicadores/detallesModal', 'Catalogos\IndicadoresController@getDetallesModal')->name('catalogos.indicadores.detallesModal');
+      Route::get('indicadores/evaluarModal', 'Catalogos\IndicadoresController@getEvaluarModal')->name('catalogos.indicadores.evaluarModal');
     });
 
     Route::group(['prefix' => 'planesEstudio'], function() {

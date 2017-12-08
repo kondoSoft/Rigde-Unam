@@ -12,17 +12,9 @@
     @include('catalogo.indicador._list')
     <!-- Modal Structure -->
     <div id="modal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-body">
-                    <!--Contenido remoto-->
-                    <div id="modal-content">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <a class="btn btn-warning" data-dismiss="modal">Cerrar</a>
-                </div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="modal-content">
+                <!--Contenido Remoto-->
             </div>
         </div>
     </div>

@@ -21,6 +21,10 @@ class IndicadoresController extends Controller
         return view('catalogo.indicador._detallesModal');
     }
 
+    public function getEvaluarModal() {
+        return view('catalogo.indicador._evaluarModal');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
