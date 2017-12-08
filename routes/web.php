@@ -32,6 +32,9 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
       Route::get('dirTecnica', 'Catalogos\dirTecnicaController@index')->name('catalogos.dirTecnica.index');
       Route::get('rcae', 'Catalogos\rcaeController@index')->name('catalogos.rcae.index');
       Route::get('horarioEscolar', 'Catalogos\horarioEscolarController@index')->name('catalogos.horarioEscolar.index');
+
+      Route::resource('indicadores', 'Catalogos\IndicadoresController', ['except' => ['show']]);
+      Route::get('indicadores/detallesModal', 'Catalogos\IndicadoresController@getDetallesModal')->name('catalogos.indicadores.detallesModal');
     });
 
     Route::group(['prefix' => 'planesEstudio'], function() {
