@@ -33,7 +33,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['is_admin']], function() {
       Route::get('rcae', 'Catalogos\rcaeController@index')->name('catalogos.rcae.index');
       Route::get('horarioEscolar', 'Catalogos\horarioEscolarController@index')->name('catalogos.horarioEscolar.index');
 
-      Route::resource('indicadores', 'Catalogos\IndicadoresController', ['except' => ['show']]);
+      Route::resource('indicadores', 'Catalogos\IndicadoresController', ['except' => ['show'], 'as' => 'catalogos']);
       Route::get('indicadores/detallesModal', 'Catalogos\IndicadoresController@getDetallesModal')->name('catalogos.indicadores.detallesModal');
       Route::get('indicadores/evaluarModal', 'Catalogos\IndicadoresController@getEvaluarModal')->name('catalogos.indicadores.evaluarModal');
     });

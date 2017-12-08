@@ -111,7 +111,8 @@
                         </li>
     				  <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autoevaluación</a></li>
     				   <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid/seguimiento"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Seguimiento</a></li>
-    				</ul>
+                       <li class="list-group-item"><a href="{{ route('catalogos.indicadores.index') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Indicadores</a></li>
+                    </ul>
     			  </div>
     			  <div class="col-md-4" ng-if="hasAccess('accesomussi') || hasAccess('superadmin')">
     			  	<h4 class="item">Herramientas</h4>
