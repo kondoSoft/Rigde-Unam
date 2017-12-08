@@ -25,9 +25,6 @@
 
    <ul class="dropdown-menu" role="menu">
        <li>
-            <a href="{{route('planesEstudio.bdu.index')}}">BDU</a>
-       </li>
-       <li>
             <a href="{{route('planesEstudio.enp.index')}}">ENP</a>
        </li>
        <li>
@@ -37,7 +34,7 @@
 </li>
 <li class="dropdown">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-       Conteo <span class="caret"></span>
+       Matriculas <span class="caret"></span>
    </a>
 
    <ul class="dropdown-menu" role="menu">
@@ -47,6 +44,14 @@
        <li>
             <a href="{{route('conteo.cch.index')}}">CCH</a>
        </li>
+   </ul>
+</li>
+<li class="dropdown">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+       Materiales <span class="caret"></span>
+   </a>
+
+   <ul class="dropdown-menu" role="menu">
        <li>
             <a href="{{route('conteo.materiales.index')}}">Materiales</a>
        </li>

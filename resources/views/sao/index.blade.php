@@ -1,21 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.crud')
 
 @section('menu')
     @include('menu.menu')
 @endsection
-
-@section('content')
-     <div class="panel panel-default">
-          <div class="panel-heading">
-               <h3>Sitación Actual de Operación</h3>
-          </div>
-          <div class="panel-body">
-               @include('sao._form')
-          </div>
-     </div>
-
+@section('titulo')
+    Situación Actual de Operación
+@endsection
+@section('panel-body')
+    {{Form::open()}}
+        @include('sao._form')
+    {{Form::close()}}
+@endsection
+@section('btnSave')
+    {{Form::submit('Guardar', ['class' => 'btn btn-success'])}}
+@endsection
+@section('btnNext')
+    <a href="#" class="btn btn-info">Siguiente</a>
 @endsection
 
 @section('javascript')
-
+    <script src="{{asset('/js/app/sao.js')}}" charset="utf-8"></script>
 @endsection

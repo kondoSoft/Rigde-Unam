@@ -12,10 +12,10 @@ class horarioEscolarController extends Controller
          $dias = [
            'Lunes',
            'Martes',
-           'Miercoles',
+           'Miércoles',
            'Jueves',
            'Viernes',
-           'Sabado'
+           'Sábado'
          ];
          return view('horarioEscolar.index', compact('dias'));
     }

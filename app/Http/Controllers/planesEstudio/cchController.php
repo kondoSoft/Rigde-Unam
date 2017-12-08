@@ -9,45 +9,6 @@ class cchController extends Controller
 {
      public function index() {
           $cch = [
-               '1er' => [
-                   'Materias Común' => [
-                        'Matematicas I (Algebra-Geometria)',
-                        'Tallér de Computo',
-                        'Química I',
-                        'Historia Universal Moderna y Contemporanea I',
-                        'Taller de Lectura, Redacción e Iniciación a la Investigación Documental I',
-                        'Lengua Extranjera I'
-                   ]
-               ],
-               '2do' => [
-                   'Materias Común' => [
-                        'Matematicas II (Algebra-Geometria)',
-                        'Química II',
-                        'Historia Universal Moderna y Contemporanea II',
-                        'Taller de Lectura, Redacción e Iniciación a la Investigación Documental II',
-                        'Lengua Extranjera II'
-                   ]
-               ],
-               '3er' => [
-                   'Materias Común' => [
-                        'Matematicas III (Algebra-Geometria)',
-                        'Fisica I',
-                        'Biología I',
-                        'Historia de México I',
-                        'Taller de Lectura, Redacción e Iniciación a la Investigación Documental III',
-                        'Lengua Extranjera III'
-                   ]
-               ],
-               '4t0' => [
-                   'Materias Común' => [
-                        'Matematicas III (Algebra-Geometria)',
-                        'Fisica II',
-                        'Biología II',
-                        'Historia de México II',
-                        'Taller de Lectura, Redacción e Iniciación a la Investigación Documental IV',
-                        'Lengua Extranjera IV'
-                   ]
-               ],
                '5to' => [
                    '1ra Opción' => [
                         'Calculo Integral y Diferencial I',

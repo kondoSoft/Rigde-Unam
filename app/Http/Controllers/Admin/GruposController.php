@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
+use App\Http\Requests\GrupoRequest;
 use App\Grupo;
 use App\User;
 
@@ -69,7 +70,7 @@ class GruposController extends Controller
         return view('admin.grupo.create');
     }
 
-    public function store(Request $request) {
+    public function store(GrupoRequest $request) {
         $grupo = new Grupo;
         if ($grupo->createModel($request)) {
             return redirect()->route('admin.grupos.index')->with('success', 'Grupo registrado');
@@ -80,7 +81,7 @@ class GruposController extends Controller
         return view('admin.grupo.edit', compact('grupo'));
     }
 
-    public function update(Grupo $grupo, Request $request) {
+    public function update(Grupo $grupo, GrupoRequest $request) {
         if($grupo->updateModel($request->all(), $grupo) == true) {
             return redirect()->route('admin.grupos.index')->with('success', 'Grupo Acualizado');
         }

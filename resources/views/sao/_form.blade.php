@@ -2,45 +2,46 @@
 
 <div class="container-fluid">
      <br>
-     <div class="form-group col-md-10 col-md-offset-1 ">
-          <div class="checkbox">
+     <div class=" radioHideText">
+          <div class="radio">
                <label>
-                    <input type="checkbox"> Vigente.
+                   {{Form::radio('estado', 'vigente', true)}} Vigente.
                </label>
           </div>
           <div class="form-group">
-               <div class="checkbox">
+               <div class="radio">
                     <label>
-                         <input type="checkbox"> Incorporación gradual.
+                        {{Form::radio('estado', 'incGradual', false )}} Incorporación gradual.
                     </label>
                </div>
-               <label>Especificar en cual semestre / años se encuentra la incorporación</label>
-               <input type="text" class="form-control col-md-2"></input>
+               <div class="form-group">
+
+               </div>
           </div>
           <div class="form-group">
-               <div class="checkbox">
+               <div class="radio">
                     <label>
-                         <input type="checkbox"> Desincorporación gradual.
+                         {{Form::radio('estado', 'desgradual', false)}} Desincorporación gradual.
                     </label>
                </div>
-               <label>de cuales semestres / años</label>
-               <input type="text" class="form-control"></input>
+               <div class="form-group">
+
+               </div>
           </div>
           <div class="form-group">
-               <div class="checkbox">
+               <div class="radio">
                     <label>
-                         <input type="checkbox"> Suspensión parcial de actividades.
+                         {{Form::radio('estado', 'susParAct', false)}} Suspensión parcial de actividades.
                     </label>
                </div>
-               <label>de cuáles semestres / años</label>
-               <input type="text" class="form-control"></input>
-          </div>
-          <div class="form-group">
-               <div class="checkbox">
-                    <label>
-                         <input type="checkbox"> Suspensión total de actividades.
-                    </label>
+               <div class="form-group">
+
                </div>
           </div>
+           <div class="radio">
+                <label>
+                     {{Form::radio('estado', 'susTotAct', false)}} Suspensión total de actividades.
+                </label>
+           </div>
      </div>
 </div>

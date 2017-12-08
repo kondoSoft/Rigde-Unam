@@ -109,9 +109,10 @@
                         <li class="list-group-item">
                             <a href="{!!route('catalogos.dirTecnica.index')!!}" class="font16"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Información inicial</a>
                         </li>
-    				  <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autoevaluación</a></li>
-    				   <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid/seguimiento"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Seguimiento</a></li>
-    				</ul>
+                        <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autoevaluación</a></li>
+                        <li class="list-group-item"><a href="#/autoevaluacion/workflow/$cliid/seguimiento"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Seguimiento</a></li>
+                        <li class="list-group-item"><a href="{{ route('catalogos.indicadores.index') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Indicadores</a></li>
+                    </ul>
     			  </div>
     			  <div class="col-md-4" ng-if="hasAccess('accesomussi') || hasAccess('superadmin')">
     			  	<h4 class="item">Herramientas</h4>
@@ -132,7 +133,7 @@
     				  </li>
     				  <!--<li class="list-group-item"><a href="#/listadimensiones">Dimensiones</a></li>-->
     				  <li class="list-group-item">
-    				  	<a href="#/listaindicadores" class="font16"><i class="glyphicon glyphicon-info-sign"></i> Indicadores</a>
+    				  	<a href="{{route('admin.indicadores.index')}}" class="font16"><i class="glyphicon glyphicon-info-sign"></i> Indicadores</a>
     				  	<br><span class="text-muted">Administración de indicadores</span>
     				  </li>
     				  <li class="list-group-item">

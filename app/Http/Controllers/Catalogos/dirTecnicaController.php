@@ -8,7 +8,12 @@ use App\Http\Controllers\Controller;
 class dirTecnicaController extends Controller
 {
     public function index() {
-         
-         return view('dirTecnica.index');
+        $turnos = [
+            'M' => 'Matutino',
+            'V' => 'Vespertino',
+            'Mix' => 'Mixto',
+            'N' => 'Nocturno',
+        ];
+        return view('dirTecnica.index', compact('turnos'));
     }
 }

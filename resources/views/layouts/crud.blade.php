@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('style')
+    @yield('style')
+@endsection
+
 @section('content')
     <div class="container">
     	<div class="row">
@@ -14,6 +18,14 @@
     				<div class="panel-body">
                         <div class="form-group col-md-12">
                             @yield('panel-body')
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 form-group">
+                                @yield('btnSave')
+                            </div>
+                            <div class="col-md-2">
+                                @yield('btnNext')
+                            </div>
                         </div>
     				</div>
                     <div class="panel-footer">
